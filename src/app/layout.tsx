@@ -30,7 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} ${lexend.variable} font-sans min-h-screen flex flex-col`}>
+  <body className={`${geistSans.variable} ${geistMono.variable} ${lexend.variable} font-sans min-h-screen flex flex-col overflow-x-hidden`}> 
         <script suppressHydrationWarning dangerouslySetInnerHTML={{ __html: `
           (function(){
             if (typeof window === 'undefined') return;

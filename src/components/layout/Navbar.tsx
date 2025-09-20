@@ -20,10 +20,10 @@ export function Navbar() {
 	function close() { setOpen(false); }
 	return (
 		<header className="w-full border-b border-neutral-200/70 dark:border-neutral-800/70 bg-white/80 dark:bg-neutral-950/70 backdrop-blur supports-[backdrop-filter]:bg-white/60 sticky top-0 z-40">
-			<div className="container h-16 flex items-center gap-4">
-				{/* Left: Logo */}
-				<div className="flex items-center">
-					<Link href="/" className="font-bold text-lg tracking-tight font-heading" onClick={close}>
+			<div className="container h-16 flex items-center gap-3 sm:gap-4 min-w-0 overflow-hidden">
+				{/* Left: Logo (responsive shrink) */}
+				<div className="flex items-center flex-shrink min-w-0 max-w-[50vw] xs:max-w-[42vw] sm:max-w-none">
+					<Link href="/" className="font-bold tracking-tight font-heading leading-none whitespace-nowrap text-[1.02rem] sm:text-lg md:text-xl truncate" onClick={close}>
 						<span className="text-brand-600">Company</span>Name
 					</Link>
 				</div>
@@ -42,9 +42,9 @@ export function Navbar() {
 					</nav>
 				</div>
 				{/* Right: Utilities */}
-				<div className="flex items-center gap-3">
+				<div className="flex items-center gap-3 flex-shrink-0">
 					<ThemeToggle />
-					<Link href="/quote" className="hidden sm:inline-flex btn-primary h-10 px-5 text-sm font-medium whitespace-nowrap leading-none" onClick={close}>Request Quote</Link>
+					<Link href="/quote" className="hidden md:inline-flex btn-primary h-10 px-5 text-sm font-medium whitespace-nowrap leading-none" onClick={close}>Request Quote</Link>
 					<button className="md:hidden inline-flex items-center justify-center p-2 rounded-md border border-neutral-300 dark:border-neutral-700" onClick={()=>setOpen(o=>!o)} aria-label="Toggle menu">
 						{open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
 					</button>
