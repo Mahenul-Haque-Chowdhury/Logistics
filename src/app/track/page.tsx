@@ -53,7 +53,7 @@ export default function TrackPage() {
       {events && events.length > 0 && (
         <div className="mt-10 space-y-10">
           <div>
-            <TrackingMap events={events} />
+            <TrackingMap />
           </div>
           {!demo && !loading && (
             <div className="relative">

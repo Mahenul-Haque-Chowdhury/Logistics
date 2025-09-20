@@ -1,20 +1,17 @@
 "use client";
 import dynamic from 'next/dynamic';
-import { TrackingEvent } from '@/types';
+import type { ComponentType } from 'react';
 
-// Dynamic imports (cast to any to bypass TS prop inference issues with react-leaflet + next/dynamic)
-const MapContainer: any = dynamic(async () => (await import('react-leaflet')).MapContainer, { ssr: false });
-const TileLayer: any = dynamic(async () => (await import('react-leaflet')).TileLayer, { ssr: false });
-// Removed Polyline, Marker, Popup for simplified map
+type GenericComponent = ComponentType<Record<string, unknown>>;
 
-interface Props { events: TrackingEvent[] }
+const MapContainer = dynamic(() => import('react-leaflet').then(m => m.MapContainer as unknown as GenericComponent), { ssr: false }) as GenericComponent;
+const TileLayer = dynamic(() => import('react-leaflet').then(m => m.TileLayer as unknown as GenericComponent), { ssr: false }) as GenericComponent;
 
-export function TrackingMap({ events }: Props) {
-  // Static center (continental US focus). Ignoring events per new requirement.
+export function TrackingMap() {
   const center: [number, number] = [39.5, -98.35];
   return (
     <div className="mt-10 rounded-lg border border-neutral-200 dark:border-neutral-800 overflow-hidden">
-      <MapContainer center={center} zoom={6} style={{ height: 380, width: '100%' }} scrollWheelZoom={false} attributionControl={false}>
+      <MapContainer center={center} zoom={5} style={{ height: 380, width: '100%' }} scrollWheelZoom={false} attributionControl={false}>
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
       </MapContainer>
     </div>
