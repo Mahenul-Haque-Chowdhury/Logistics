@@ -6,6 +6,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { ThemeProvider } from "@/components/layout/ThemeProvider";
 import { CookieConsent } from "@/components/ui/CookieConsent";
+import { PageTransition } from "@/components/layout/PageTransition";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
@@ -65,7 +66,9 @@ export default function RootLayout({
         }) }} />
         <ThemeProvider>
           <Navbar />
-          <div className="flex-1">{children}</div>
+          <PageTransition>
+            <div className="flex-1">{children}</div>
+          </PageTransition>
           <Footer />
           <CookieConsent />
         </ThemeProvider>
