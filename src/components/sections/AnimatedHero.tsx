@@ -66,7 +66,7 @@ export function AnimatedHero() {
   return (
     <section className="relative overflow-hidden">
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_left,var(--tw-gradient-stops))] from-brand-500/15 via-brand-200/10 to-transparent" />
-  <div className="container max-w-6xl pt-16 pb-24 md:pt-28 md:pb-40">
+  <div className="container max-w-6xl pt-12 pb-20 md:pt-28 md:pb-40">
         <motion.div
           initial="hidden"
           whileInView="show"
