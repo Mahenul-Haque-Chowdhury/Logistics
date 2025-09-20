@@ -66,13 +66,13 @@ export function AnimatedHero() {
   return (
     <section className="relative overflow-hidden">
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_left,var(--tw-gradient-stops))] from-brand-500/15 via-brand-200/10 to-transparent" />
-      <div className="container max-w-6xl py-28 md:py-40">
+  <div className="container max-w-6xl pt-16 pb-24 md:pt-28 md:pb-40">
         <motion.div
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.5 }}
           variants={container}
-          className="max-w-4xl space-y-10"
+          className="max-w-4xl space-y-8 md:space-y-10"
         >
           <motion.h1 variants={item} className="font-heading text-[2.75rem] md:text-6xl font-semibold tracking-tight leading-tight">
             End-to-End <span className="text-brand-600">Logistics</span> & Supply Chain Excellence
