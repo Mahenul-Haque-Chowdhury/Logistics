@@ -24,7 +24,7 @@ export function Navbar() {
 				{/* Left: Logo */}
 				<div className="flex items-center">
 					<Link href="/" className="font-bold text-lg tracking-tight font-heading" onClick={close}>
-						<span className="text-brand-600">Logi</span>Site
+						<span className="text-brand-600">Omuk</span>&nbsp;Logistics
 					</Link>
 				</div>
 				{/* Middle: Centered nav (absolute centering within relative container) */}

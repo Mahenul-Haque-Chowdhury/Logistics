@@ -51,7 +51,7 @@ export default function RootLayout({
         <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify({
           '@context': 'https://schema.org',
           '@type': 'Organization',
-          name: 'LogiSite Logistics',
+          name: 'Omuk Logistics',
           url: 'https://example.com',
           logo: 'https://example.com/logo.png',
           sameAs: [
