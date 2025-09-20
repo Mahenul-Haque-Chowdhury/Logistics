@@ -28,6 +28,14 @@ export interface Service {
   description?: string;
   icon?: string; // name of an icon key (lucide) or emoji fallback
   category?: 'relocation' | 'dispatch';
+  tier?: 'standard' | 'premium';
+  outcomes?: string[]; // measurable or value-focused outcomes
+  useCases?: string[]; // concrete scenarios / buyer triggers
+  differentiators?: string[]; // why choose this offering
+  idealCustomers?: string[]; // target segments
+  kpis?: string[]; // optional performance indicators (non-binding)
+  slaNotes?: string; // short narrative on service level / latency expectations
+  ctaLabel?: string; // custom CTA override
 }
 
 export interface Testimonial {

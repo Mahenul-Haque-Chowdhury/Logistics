@@ -29,9 +29,23 @@ export default function ServicesPage() {
                 <span className="inline-flex p-2 rounded-md bg-brand-50 dark:bg-brand-500/10 text-brand-600 dark:text-brand-400 ring-1 ring-inset ring-brand-500/20">
                   <Icon className="w-5 h-5" />
                 </span>
-                <div className="space-y-2">
-                  <h3 className="font-heading font-semibold text-lg tracking-tight">{s.title}</h3>
+                <div className="space-y-2 flex-1 min-w-0">
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <h3 className="font-heading font-semibold text-lg tracking-tight">{s.title}</h3>
+                    {s.tier && (
+                      <span className={`text-[10px] font-semibold tracking-wide px-2 py-0.5 rounded-full ring-1 ring-inset ${s.tier === 'premium' ? 'bg-amber-100 text-amber-800 ring-amber-300 dark:bg-amber-400/10 dark:text-amber-300 dark:ring-amber-400/30' : 'bg-neutral-100 text-neutral-700 ring-neutral-300 dark:bg-neutral-800 dark:text-neutral-300 dark:ring-neutral-600'}`}>{s.tier.toUpperCase()}</span>
+                    )}
+                  </div>
                   <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed line-clamp-3">{s.summary}</p>
+                  {s.outcomes && (
+                    <div className="flex flex-wrap gap-1.5 mt-2">
+                      {s.outcomes.slice(0,2).map(o => (
+                        <span key={o} className="text-[10px] px-2 py-0.5 rounded-md bg-brand-500/5 text-brand-600 dark:text-brand-400 ring-1 ring-brand-500/20 font-medium tracking-wide">
+                          {o}
+                        </span>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </div>
               <ul className="mt-4 space-y-1 text-xs text-neutral-500 dark:text-neutral-400">

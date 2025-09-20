@@ -428,19 +428,21 @@ export default function QuotePage() {
                   <p className="text-[11px] text-neutral-600 dark:text-neutral-400 leading-snug">Base tier rate adjusted by speed & multi-vehicle factors. Fuel surcharge added afterward.</p>
                 </div>
               )}
-              <div className="flex flex-col sm:flex-row sm:items-center gap-4 pt-2">
-                <div className="flex items-center gap-4">
-                  <button disabled={isSubmitting} className="btn-primary px-6">{isSubmitting ? 'Submitting...' : 'Save Quote'}</button>
+              <div className="flex flex-col gap-4 pt-2">
+                <div className="flex flex-col sm:flex-row gap-3 w-full">
+                  <button disabled={isSubmitting} className="btn-primary w-full sm:w-auto justify-center h-11 px-6 text-sm font-medium">{isSubmitting ? 'Submitting...' : 'Save Quote'}</button>
                   <button
                     type="button"
                     onClick={requestManualQuote}
                     disabled={manualRequested || manualLoading}
-                    className="px-6 py-2 rounded-md border border-brand-600 text-brand-700 dark:text-brand-400 hover:bg-brand-50 dark:hover:bg-brand-600/10 text-sm font-medium transition disabled:opacity-50 disabled:cursor-not-allowed"
-                  >{manualLoading ? 'Requesting...' : manualRequested ? 'Requested' : 'Request Accurate Manual Quote'}</button>
+                    className="w-full sm:w-auto h-11 px-4 sm:px-6 rounded-md border border-brand-600 text-brand-700 dark:text-brand-400 hover:bg-brand-50 dark:hover:bg-brand-600/10 text-sm font-medium transition disabled:opacity-50 disabled:cursor-not-allowed text-center"
+                  >{manualLoading ? 'Requesting...' : manualRequested ? 'Requested' : 'Manual Review Quote'}</button>
                 </div>
-                <div className="flex flex-col gap-1 text-sm">
-                  {manualRequested && <span className="text-brand-600 dark:text-brand-400">Manual review requested – our team will follow up.</span>}
-                </div>
+                {manualRequested && (
+                  <div className="text-xs sm:text-sm text-brand-600 dark:text-brand-400">
+                    Manual review requested – our team will follow up.
+                  </div>
+                )}
               </div>
             </form>
           </div>

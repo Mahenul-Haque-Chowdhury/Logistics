@@ -9,7 +9,14 @@ export const services: Service[] = [
     description: 'End-to-end coordination for personal, auction, or dealership moves with condition capture and reliable ETAs.',
     icon: 'Truck',
     category: 'relocation',
-    features: ['Door-to-Door Handling', 'Condition Documentation', 'Live Status Points', 'Verified Carriers']
+    features: ['Door-to-Door Handling', 'Condition Documentation', 'Live Status Points', 'Verified Carriers'],
+    tier: 'standard',
+    outcomes: ['Reduced handoff friction', 'Accurate delivery window confidence', 'Protected vehicle condition chain'],
+    useCases: ['Auction purchase release', 'Dealership transfer', 'Private sale handover'],
+    differentiators: ['Photo & note condition capture workflow', 'Carrier vetting standards', 'Transparent milestone updates'],
+    idealCustomers: ['Dealership groups', 'Private sellers', 'Collectors with single moves'],
+    kpis: ['On-time pickup adherence focus', 'Damage incident minimization'],
+    slaNotes: 'Standard priority scheduling with proactive ETA adjustments.'
   },
   {
     slug: 'fleet-shift',
@@ -18,7 +25,15 @@ export const services: Service[] = [
     description: 'Programmatic scheduling, batching logic, and utilization analytics reduce idle time and empty miles across your footprint.',
     icon: 'MoveRight',
     category: 'relocation',
-    features: ['Batch Routing', 'Location Prioritization', 'Utilization Insights', 'Centralized Updates']
+    features: ['Batch Routing', 'Location Prioritization', 'Utilization Insights', 'Centralized Updates'],
+    tier: 'premium',
+    outcomes: ['Higher asset utilization', 'Reduced empty reposition miles', 'Centralized reporting transparency'],
+    useCases: ['Rental fleet seasonal shift', 'Multi-market availability balancing', 'OEM remarketing flows'],
+    differentiators: ['Batch optimization heuristics', 'Prioritized lane sequencing', 'Central dispatch coordination'],
+    idealCustomers: ['Rental operators', 'Fleet management platforms', 'OEM distribution'],
+    kpis: ['Utilization uplift tracking', 'Reposition cycle time observation'],
+    slaNotes: 'Coordinated calendar windows with escalation path for critical assets.',
+    ctaLabel: 'Discuss Fleet Program'
   },
   {
     slug: 'premium-enclosed',
@@ -27,7 +42,15 @@ export const services: Service[] = [
     description: 'Vetted enclosed carriers, soft‑strap securement, and tight chain-of-custody for specialty and collectible vehicles.',
     icon: 'Boxes',
     category: 'relocation',
-    features: ['Enclosed Trailers', 'Soft Strap Securement', 'Low Clearance Handling', 'Photo Chain-of-Custody']
+    features: ['Enclosed Trailers', 'Soft Strap Securement', 'Low Clearance Handling', 'Photo Chain-of-Custody'],
+    tier: 'premium',
+    outcomes: ['Minimized exposure risk', 'Enhanced asset protection', 'Clear custody traceability'],
+    useCases: ['Luxury auction release', 'Exotic vehicle relocation', 'Prototype transport'],
+    differentiators: ['Soft-strap handling standards', 'Low-clearance trained carriers', 'Photographic custody log'],
+    idealCustomers: ['Collectors', 'Luxury dealerships', 'Specialty brokers'],
+    kpis: ['Custody photo completion adherence', 'Incident-free delivery focus'],
+    slaNotes: 'Priority scheduling with selective carrier allocation.',
+    ctaLabel: 'Request Enclosed Quote'
   },
   {
     slug: 'priority-fastlane',
@@ -36,7 +59,14 @@ export const services: Service[] = [
     description: 'Reserved capacity + proactive milestone messaging to meet compressed delivery schedules without guesswork.',
     icon: 'Ship',
     category: 'relocation',
-    features: ['Expedited Scheduling', 'Proactive ETA Alerts', 'Capacity Reservation', 'Escalation Path']
+    features: ['Expedited Scheduling', 'Proactive ETA Alerts', 'Capacity Reservation', 'Escalation Path'],
+    tier: 'premium',
+    outcomes: ['Reduced delivery latency', 'Higher schedule adherence', 'Early risk surfacing'],
+    useCases: ['End-of-quarter delivery push', 'Auction clearance deadline', 'Critical retail launch alignment'],
+    differentiators: ['Reserved capacity pool', 'Real-time exception signaling', 'Escalation path clarity'],
+    idealCustomers: ['Time-critical shippers', 'Auction buyers', 'Performance brokers'],
+    kpis: ['Expedited cycle focus', 'Latency variance monitoring'],
+    slaNotes: 'Expedited window targeting with proactive incident comms.'
   },
   {
     slug: 'specialty-exotic',
@@ -45,7 +75,14 @@ export const services: Service[] = [
     description: 'Enhanced protective handling, confidentiality options, and pre-move planning ensure risk mitigation for unique assets.',
     icon: 'Boxes',
     category: 'relocation',
-    features: ['Dedicated Handling', 'Confidential Routing', 'Enhanced Protection', 'Route Risk Review']
+    features: ['Dedicated Handling', 'Confidential Routing', 'Enhanced Protection', 'Route Risk Review'],
+    tier: 'premium',
+    outcomes: ['Mitigated exposure & routing risk', 'Confidential identity shielding', 'Predictable handover experience'],
+    useCases: ['Confidential prototype move', 'High-profile collection transfer', 'Custom build delivery'],
+    differentiators: ['Optional NDA + masked labeling', 'Route risk pre-brief', 'Dedicated handling concierge'],
+    idealCustomers: ['Collectors', 'Prototype teams', 'High-net-worth logistics agents'],
+    kpis: ['Zero non-authorized disclosure focus', 'Handling compliance checks'],
+    slaNotes: 'Concierge scheduling with protective flow controls.'
   },
   {
     slug: 'national-network',
@@ -54,7 +91,14 @@ export const services: Service[] = [
     description: 'Unified standards across regions with centralized coordination and integrated tracking for predictable performance.',
     icon: 'MoveRight',
     category: 'relocation',
-    features: ['Continental Coverage', 'Unified Standards', 'Central Dispatch', 'Tracking Layer']
+    features: ['Continental Coverage', 'Unified Standards', 'Central Dispatch', 'Tracking Layer'],
+    tier: 'standard',
+    outcomes: ['Consistent regional execution', 'Simplified oversight', 'Improved exception containment'],
+    useCases: ['Multi-region program onboarding', 'National rollout support', 'Distributed asset availability'],
+    differentiators: ['Unified SOP library', 'Centralized dispatch governance', 'Integrative tracking layer'],
+    idealCustomers: ['Nationwide fleets', 'Enterprise shippers', 'Program managers'],
+    kpis: ['Coverage SLA adherence focus', 'Exception closure tracking'],
+    slaNotes: 'Standard national operating cadence with centralized escalation.'
   },
   // Dispatch / Operator Support Pillar
   {
@@ -64,7 +108,14 @@ export const services: Service[] = [
     description: 'Load sourcing, scheduling, and exception handling so operators maximize hours-of-service productivity while we manage complexity.',
     icon: 'Headset',
     category: 'dispatch',
-    features: ['Load Sourcing', '24/7 Coordination', 'Exception Handling', 'Carrier Vetting']
+    features: ['Load Sourcing', '24/7 Coordination', 'Exception Handling', 'Carrier Vetting'],
+    tier: 'standard',
+    outcomes: ['Higher utilization hours', 'Reduced dwell & idle wait time', 'Cleaner exception resolution'],
+    useCases: ['Owner-operator lane management', 'Night/weekend coverage gap', 'Scaling new authority operations'],
+    differentiators: ['Continuous monitoring window', 'Exception triage protocol', 'Selective load vetting'],
+    idealCustomers: ['Owner-operators', 'Small carrier groups', 'New authorities'],
+    kpis: ['Dispatch response discipline', 'Exception closure consistency'],
+    slaNotes: '24/7 desk coverage with prioritized escalation for safety events.'
   },
   {
     slug: 'live-visibility-suite',
@@ -73,7 +124,14 @@ export const services: Service[] = [
     description: 'Telematics ingestion and geo-event triggers improve transparency, reduce manual check calls, and surface early-risk signals.',
     icon: 'Truck',
     category: 'dispatch',
-    features: ['Geo Events', 'Exception Flags', 'Device Integrations', 'Latency Reduction']
+    features: ['Geo Events', 'Exception Flags', 'Device Integrations', 'Latency Reduction'],
+    tier: 'premium',
+    outcomes: ['Lower manual check-call load', 'Earlier disruption detection', 'Improved dwell visibility'],
+    useCases: ['High-touch shipper reporting', 'OTIF compliance tracking', 'Temperature-sensitive oversight (future)'],
+    differentiators: ['Unified geo-event model', 'Risk flag surfacing', 'Integrative device adapters'],
+    idealCustomers: ['Tech-enabled brokers', 'Shippers with SLA dashboards', 'Visibility platform partners'],
+    kpis: ['Check-call reduction observation', 'Exception lead time focus'],
+    slaNotes: 'Real-time polling intervals with exception push notifications.'
   },
   {
     slug: 'zero-risk-intro',
@@ -82,7 +140,14 @@ export const services: Service[] = [
     description: 'Structured evaluation period with KPI baselines, weekly performance briefs, and no long-term obligation.',
     icon: 'Ship',
     category: 'dispatch',
-    features: ['Defined KPIs', 'Weekly Reviews', 'No Obligation', 'Fast Onboarding']
+    features: ['Defined KPIs', 'Weekly Reviews', 'No Obligation', 'Fast Onboarding'],
+    tier: 'standard',
+    outcomes: ['Faster time-to-proof', 'Lower adoption friction', 'Objective baseline creation'],
+    useCases: ['New lane onboarding', 'Dispatch augmentation trial', 'Visibility feature pilot'],
+    differentiators: ['Pre-defined success metrics', 'Structured weekly briefing', 'Optional extension path'],
+    idealCustomers: ['Mid-market shippers', 'Scaling operators', 'Innovation leads'],
+    kpis: ['Baseline variance tracking', 'Adoption velocity focus'],
+    slaNotes: 'Pilot governance cadence with weekly alignment call.'
   },
   {
     slug: 'financial-docs-hub',
@@ -91,7 +156,14 @@ export const services: Service[] = [
     description: 'Automated document collation, validation checkpoints, and discrepancy flagging accelerate cash cycles.',
     icon: 'Boxes',
     category: 'dispatch',
-    features: ['Invoice QA', 'Document Assembly', 'Dispute Reduction', 'Faster Turnaround']
+    features: ['Invoice QA', 'Document Assembly', 'Dispute Reduction', 'Faster Turnaround'],
+    tier: 'standard',
+    outcomes: ['Reduced billing disputes', 'Shorter DSO trajectory', 'Cleaner documentation trail'],
+    useCases: ['High-volume back-office support', 'Rapid invoice collation', 'Settlement variance monitoring'],
+    differentiators: ['Structured document validation', 'Discrepancy flag layer', 'Cycle-time visibility'],
+    idealCustomers: ['Carrier groups', 'Freight billing teams', 'Third-party admins'],
+    kpis: ['Dispute frequency observation', 'Cycle time progression'],
+    slaNotes: 'Standard processing targets with variance alerting.'
   },
   {
     slug: 'carrier-standing-score',
@@ -100,7 +172,14 @@ export const services: Service[] = [
     description: 'Composite scoring framework highlights risk trends, enabling proactive remediation and partner optimization.',
     icon: 'Headset',
     category: 'dispatch',
-    features: ['Safety Signals', 'On-Time Metrics', 'Trend Dashboards', 'Score Weighting']
+    features: ['Safety Signals', 'On-Time Metrics', 'Trend Dashboards', 'Score Weighting'],
+    tier: 'premium',
+    outcomes: ['Earlier carrier risk awareness', 'Improved network quality', 'Data-driven partner decisions'],
+    useCases: ['Carrier portfolio optimization', 'Compliance program visibility', 'Network refresh planning'],
+    differentiators: ['Weighted composite scoring', 'Risk trend surfacing', 'Actionable remediation cues'],
+    idealCustomers: ['Brokerage quality teams', 'Compliance managers', 'Network strategy leads'],
+    kpis: ['Network score distribution shifts', 'Risk escalation speed focus'],
+    slaNotes: 'Periodic refresh cadence with priority alert thresholds.'
   },
   {
     slug: 'regulatory-support-suite',
@@ -109,7 +188,14 @@ export const services: Service[] = [
     description: 'Structured workflow for DOT, IFTA, and record management lowers admin burden and compliance gaps.',
     icon: 'MoveRight',
     category: 'dispatch',
-    features: ['IFTA Prep', 'DOT Filing Aid', 'Record Controls', 'Renewal Tracking']
+    features: ['IFTA Prep', 'DOT Filing Aid', 'Record Controls', 'Renewal Tracking'],
+    tier: 'standard',
+    outcomes: ['Reduced filing errors', 'Lower administrative drag', 'Better renewal predictability'],
+    useCases: ['New authority support', 'IFTA quarterly cycle prep', 'Pre-audit readiness'],
+    differentiators: ['Structured compliance checklist', 'Renewal tracking layer', 'Record hygiene coaching'],
+    idealCustomers: ['Growing carriers', 'Owner-operator fleets', 'Compliance officers'],
+    kpis: ['Renewal deadline adherence', 'Filing correction minimization'],
+    slaNotes: 'Assisted filing cadence with renewal reminders.'
   }
 ];
 
