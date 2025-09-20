@@ -11,9 +11,35 @@ export function TrackingMap() {
   const center: [number, number] = [39.5, -98.35];
   return (
     <div className="mt-10 rounded-lg border border-neutral-200 dark:border-neutral-800 overflow-hidden">
-      <MapContainer center={center} zoom={5} style={{ height: 380, width: '100%' }} scrollWheelZoom={false} attributionControl={false}>
-        <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+      <MapContainer
+        center={center}
+        zoom={5}
+        minZoom={2}
+        maxZoom={18}
+        style={{ height: 400, width: '100%' }}
+        scrollWheelZoom={false}
+        attributionControl={false}
+        preferCanvas={false}
+      >
+        {/* High DPI (retina) aware tile layer. `@2x` tiles sharpen appearance on retina screens */}
+        <TileLayer
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          // Leaflet automatically requests @2x tiles when detectRetina is true.
+          detectRetina
+        />
+        {/* Example alternative (commented) high-contrast layer if needed:
+        <TileLayer
+          url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
+          detectRetina
+        /> */}
       </MapContainer>
+      <style jsx global>{`
+        /* Improve crispness for map tiles */
+        .leaflet-container .leaflet-tile { image-rendering: auto; }
+        @media (min-resolution: 2dppx) {
+          .leaflet-container .leaflet-tile { image-rendering: -webkit-optimize-contrast; }
+        }
+      `}</style>
     </div>
   );
 }
