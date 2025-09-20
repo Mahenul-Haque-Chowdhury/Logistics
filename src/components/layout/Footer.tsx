@@ -36,8 +36,19 @@ export function Footer() {
           </ul>
         </div>
       </div>
-      <div className="border-t border-neutral-200/60 dark:border-neutral-800/60 py-6 text-center text-xs text-neutral-500">
-        © {new Date().getFullYear()} LogiSite. All rights reserved. Made for the US market.
+      <div className="border-t border-neutral-200/60 dark:border-neutral-800/60 py-6 text-xs text-neutral-500">
+        <div className="container flex flex-col sm:flex-row items-center justify-between gap-3">
+          <span className="order-2 sm:order-1 text-center sm:text-left">© {new Date().getFullYear()} LogiSite. All rights reserved.</span>
+          <a
+            href="https://arnob.life"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="order-1 sm:order-2 inline-flex items-center gap-1 text-neutral-500 hover:text-brand-600 transition-colors"
+          >
+            <span>Developed & Designed by</span>
+            <span className="font-medium">Arnob</span>
+          </a>
+        </div>
       </div>
     </footer>
   );
