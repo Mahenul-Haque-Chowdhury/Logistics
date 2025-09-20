@@ -81,9 +81,9 @@ export function AnimatedHero() {
             Fast, reliable, and transparent last-mile delivery, dispatch coordination, and vehicle relocation
             powered by real-time tracking and data-driven optimization across the United States.
           </motion.p>
-          <motion.div variants={item} className="flex flex-col sm:flex-row gap-4">
-            <Link href="/quote" className="btn-primary">Get a Quote</Link>
-            <Link href="/services" className="inline-flex items-center justify-center rounded-md border border-neutral-300 dark:border-neutral-700 px-5 py-2.5 text-sm font-medium hover:bg-neutral-50 dark:hover:bg-neutral-900 transition-colors">View Services</Link>
+          <motion.div variants={item} className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center sm:justify-start">
+            <Link href="/quote" className="btn-primary w-full sm:w-auto text-center justify-center">Get a Quote</Link>
+            <Link href="/services" className="inline-flex items-center justify-center rounded-md border border-neutral-300 dark:border-neutral-700 px-5 py-2.5 text-sm font-medium hover:bg-neutral-50 dark:hover:bg-neutral-900 transition-colors w-full sm:w-auto">View Services</Link>
           </motion.div>
           <motion.dl variants={item} className="grid grid-cols-3 gap-8 pt-6 max-w-md text-center sm:text-left">
             {stats.map(s => <StatItem key={s.label} stat={s} />)}

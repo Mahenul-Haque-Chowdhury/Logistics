@@ -44,7 +44,7 @@ export function Navbar() {
 				{/* Right: Utilities */}
 				<div className="flex items-center gap-3">
 					<ThemeToggle />
-					<Link href="/quote" className="hidden sm:inline-flex btn-primary h-10 px-5 text-sm font-medium" onClick={close}>Request Quote</Link>
+					<Link href="/quote" className="hidden sm:inline-flex btn-primary h-10 px-5 text-sm font-medium whitespace-nowrap leading-none" onClick={close}>Request Quote</Link>
 					<button className="md:hidden inline-flex items-center justify-center p-2 rounded-md border border-neutral-300 dark:border-neutral-700" onClick={()=>setOpen(o=>!o)} aria-label="Toggle menu">
 						{open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
 					</button>
@@ -69,7 +69,7 @@ export function Navbar() {
 									</Link>
 								);
 							})}
-							<Link href="/quote" onClick={close} className="mt-2 btn-primary inline-flex justify-center h-11 text-sm font-medium">Request Quote</Link>
+							<Link href="/quote" onClick={close} className="mt-2 btn-primary inline-flex justify-center h-11 text-sm font-medium whitespace-nowrap leading-none">Request Quote</Link>
 						</div>
 					</motion.div>
 				)}
