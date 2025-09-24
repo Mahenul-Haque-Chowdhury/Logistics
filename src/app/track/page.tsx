@@ -3,7 +3,8 @@ import { useState, useEffect } from 'react';
 import { TrackingEvent } from '@/types';
 import { TrackingMap } from '@/components/track/TrackingMap';
 import { mockTrackingEvents } from '@/lib/data';
-import { Loader2, Circle, CheckCircle2 } from 'lucide-react';
+import { Loader2, Circle, CheckCircle2, PackageSearch, Map, Truck, Clock, CheckCircle, RefreshCw } from 'lucide-react';
+import { PageHeader } from '@/components/sections/PageHeader';
 
 export default function TrackPage() {
   const [tn, setTn] = useState('');
@@ -30,48 +31,70 @@ export default function TrackPage() {
     } finally { setLoading(false); }
   }
   return (
-    <main className="container mx-auto max-w-4xl px-6 py-16">
-      <h1 className="text-4xl font-bold tracking-tight font-heading">Track Shipment</h1>
-      <p className="mt-4 text-neutral-600 dark:text-neutral-400 max-w-2xl">Enter your tracking number to view real-time milestone history.</p>
-      <form onSubmit={submit} className="mt-8 flex flex-col sm:flex-row gap-4 max-w-xl">
-        <input value={tn} onChange={e=>setTn(e.target.value)} placeholder="e.g. ABC123456" className="flex-1 rounded-md border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-900 px-4 py-2.5 text-sm" />
+    <main className="container mx-auto max-w-6xl px-6 py-20">
+      <PageHeader
+        eyebrow="Tracking"
+        title="Live Shipment Visibility"
+        description={<>Enter a tracking number to view status progression, location context, and milestone timestamps. Demo data preloaded for preview.</>}
+        align="left"
+      />
+
+      <div className="mt-6 grid gap-3 sm:grid-cols-3 lg:grid-cols-6">
+        {processSteps.map(s => (
+          <div key={s.title} className="surface p-3 rounded-lg flex flex-col gap-2.5">
+            <span className="inline-flex p-1.5 rounded-md bg-brand-600/10 text-brand-600 ring-1 ring-brand-600/15 w-max"><s.icon className="w-4 h-4" /></span>
+            <h3 className="text-xs font-medium tracking-tight">{s.title}</h3>
+            <p className="text-[11px] text-muted-foreground leading-relaxed">{s.desc}</p>
+          </div>
+        ))}
+      </div>
+
+  <form onSubmit={submit} className="mt-8 surface p-5 rounded-xl max-w-xl flex flex-col sm:flex-row gap-3">
+        <input value={tn} onChange={e=>setTn(e.target.value)} placeholder="e.g. ABC123456" className="flex-1 rounded-md bg-transparent border border-border/60 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500" />
         <button disabled={loading} className="btn-primary min-w-[140px] inline-flex items-center justify-center gap-2">{loading && <Loader2 className="w-4 h-4 animate-spin" />} Track</button>
       </form>
       {demo && !loading && !error && (
-        <div className="mt-6 text-xs inline-flex items-center gap-2 bg-blue-50 dark:bg-neutral-800/60 border border-blue-200 dark:border-neutral-700 text-blue-700 dark:text-neutral-300 px-3 py-2 rounded-md">
-          <span>This is a demo route. Enter a tracking number to fetch a fresh simulated timeline.</span>
+        <div className="mt-3 text-[11px] inline-flex items-center gap-2 px-2.5 py-1.5 rounded-md bg-brand-600/10 text-brand-700 dark:text-brand-300 ring-1 ring-brand-600/20">
+          <span>Demo timeline loaded. Enter a number for a fresh simulation.</span>
         </div>
       )}
       {error && <p className="mt-6 text-sm text-red-600">{error}</p>}
       {loading && (
-        <div className="mt-10 space-y-4 max-w-md">
+        <div className="mt-6 space-y-3 max-w-md">
           {[...Array(4)].map((_,i)=>(
-            <div key={i} className="h-12 rounded-md bg-neutral-200/60 dark:bg-neutral-800/60 animate-pulse" />
+            <div key={i} className="h-10 rounded-md bg-neutral-200/60 dark:bg-neutral-800/60 animate-pulse" />
           ))}
         </div>
       )}
       {events && events.length > 0 && (
-        <div className="mt-10 space-y-10">
-          <div>
-            <TrackingMap />
+        <div className="mt-10 grid gap-8 lg:grid-cols-2">
+          <div className="surface p-4 rounded-lg h-[520px] flex flex-col">
+            <div className="flex items-center justify-between mb-3">
+              <h3 className="text-sm font-medium tracking-tight">Route Overview</h3>
+              <span className="text-[10px] uppercase tracking-wide text-muted-foreground">Map</span>
+            </div>
+            <div className="flex-1 rounded-md overflow-hidden">
+              <TrackingMap />
+            </div>
           </div>
           {!demo && !loading && (
-            <div className="relative">
+            <div className="surface p-5 rounded-lg relative max-h-[520px] overflow-auto">
+              <h3 className="text-sm font-medium tracking-tight mb-4 flex items-center gap-2"><RefreshCw className="w-4 h-4" /> Status Timeline</h3>
               <ol className="space-y-6">
                 {events.slice().reverse().map((ev, idx) => {
                   const delivered = ev.status === 'DELIVERED';
                   return (
                     <li key={ev.id} className="relative pl-8">
                       <span className="absolute left-0 top-1.5">
-                        {delivered ? <CheckCircle2 className="w-5 h-5 text-emerald-500" /> : <Circle className="w-5 h-5 text-brand-600" />}
+                        {delivered ? <CheckCircle className="w-5 h-5 text-emerald-500" /> : <Circle className="w-5 h-5 text-brand-600" />}
                       </span>
                       <div className="flex flex-col sm:flex-row sm:items-center gap-2">
                         <span className="text-sm font-medium">{formatStatus(ev.status)}</span>
-                        <span className="text-xs text-neutral-500 dark:text-neutral-400">{new Date(ev.timestamp).toLocaleString()}</span>
+                        <span className="text-xs text-muted-foreground">{new Date(ev.timestamp).toLocaleString()}</span>
                       </div>
-                      <p className="text-sm text-neutral-600 dark:text-neutral-400">{ev.location}</p>
-                      {ev.note && <p className="text-xs mt-1 text-neutral-500 italic">{ev.note}</p>}
-                      {idx !== events.length - 1 && <span className="absolute left-[9px] top-6 bottom-[-18px] w-px bg-neutral-200 dark:bg-neutral-700" />}
+                      <p className="text-xs text-muted-foreground/80">{ev.location}</p>
+                      {ev.note && <p className="text-[11px] mt-1 text-muted-foreground italic">{ev.note}</p>}
+                      {idx !== events.length - 1 && <span className="absolute left-[9px] top-6 bottom-[-18px] w-px bg-border/60" />}
                     </li>
                   );
                 })}
@@ -87,3 +110,12 @@ export default function TrackPage() {
 function formatStatus(s: string) {
   return s.replace(/_/g,' ').toLowerCase().replace(/\b\w/g,c=>c.toUpperCase());
 }
+
+const processSteps = [
+  { icon: PackageSearch, title: 'Lookup', desc: 'Identify shipment & prepare route context.' },
+  { icon: Map, title: 'Geolocate', desc: 'Normalize coordinates & route distance.' },
+  { icon: Truck, title: 'In Transit', desc: 'Movement + waypoint event generation.' },
+  { icon: Clock, title: 'Milestones', desc: 'Timestamp & classify progression events.' },
+  { icon: RefreshCw, title: 'Updates', desc: 'Surface changes & exception states.' },
+  { icon: CheckCircle, title: 'Delivered', desc: 'Final confirmation & closure log.' }
+];

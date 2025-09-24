@@ -31,6 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
   <body className={`${geistSans.variable} ${geistMono.variable} ${lexend.variable} font-sans min-h-screen flex flex-col overflow-x-hidden`}> 
+        <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 bg-white dark:bg-neutral-900 text-sm font-medium px-4 py-2 rounded-md shadow focus:ring-2 focus:ring-brand-500">Skip to content</a>
         <script suppressHydrationWarning dangerouslySetInnerHTML={{ __html: `
           (function(){
             if (typeof window === 'undefined') return;
@@ -67,7 +68,7 @@ export default function RootLayout({
         <ThemeProvider>
           <Navbar />
           <PageTransition>
-            <div className="flex-1">{children}</div>
+            <div id="main" className="flex-1">{children}</div>
           </PageTransition>
           <Footer />
           <CookieConsent />

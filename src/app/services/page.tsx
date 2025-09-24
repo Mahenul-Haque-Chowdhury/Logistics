@@ -1,74 +1,64 @@
 import { services } from '@/lib/data';
-import Link from 'next/link';
-import { Ship, Boxes, Truck, Headset, MoveRight, ArrowRight } from 'lucide-react';
-import { Metadata } from 'next';
+import { PageHeader } from '@/components/sections/PageHeader';
+import { ServicesExplorer } from '@/components/sections/ServicesExplorer';
+import type { Metadata } from 'next';
+import { ShieldCheck, Gauge, Network } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Services',
   description: 'Operational US logistics solutions: vehicle relocation programs & operator dispatch support.'
 };
 
-const iconMap: Record<string, React.ComponentType<{ className?: string }>> = { Ship, Boxes, Truck, Headset, MoveRight };
+// iconMap no longer needed on this page; ServiceCard handles icons via ServicesExplorer
 
 export default function ServicesPage() {
-  const relocation = services.filter(s => s.category === 'relocation');
-  const dispatch = services.filter(s => s.category === 'dispatch');
-
-  const renderGroup = (label: string, items: typeof services) => (
-    <section key={label} className="mt-14">
-      <div className="flex items-center justify-between mb-6">
-        <h2 className="text-2xl font-semibold tracking-tight font-heading">{label}</h2>
-      </div>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {items.map(s => {
-          const Icon = (s.icon && iconMap[s.icon]) || Ship;
-          return (
-            <Link key={s.slug} href={`/services/${s.slug}`} className="group relative rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950/40 p-6 shadow-soft overflow-hidden focus:outline-none focus:ring-2 focus:ring-brand-500/50">
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-gradient-to-br from-brand-500/5 to-brand-700/5 transition-opacity" />
-              <div className="flex items-start gap-4">
-                <span className="inline-flex p-2 rounded-md bg-brand-50 dark:bg-brand-500/10 text-brand-600 dark:text-brand-400 ring-1 ring-inset ring-brand-500/20">
-                  <Icon className="w-5 h-5" />
-                </span>
-                <div className="space-y-2 flex-1 min-w-0">
-                  <div className="flex items-center gap-2 flex-wrap">
-                    <h3 className="font-heading font-semibold text-lg tracking-tight">{s.title}</h3>
-                    {s.tier && (
-                      <span className={`text-[10px] font-semibold tracking-wide px-2 py-0.5 rounded-full ring-1 ring-inset ${s.tier === 'premium' ? 'bg-amber-100 text-amber-800 ring-amber-300 dark:bg-amber-400/10 dark:text-amber-300 dark:ring-amber-400/30' : 'bg-neutral-100 text-neutral-700 ring-neutral-300 dark:bg-neutral-800 dark:text-neutral-300 dark:ring-neutral-600'}`}>{s.tier.toUpperCase()}</span>
-                    )}
-                  </div>
-                  <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed line-clamp-3">{s.summary}</p>
-                  {s.outcomes && (
-                    <div className="flex flex-wrap gap-1.5 mt-2">
-                      {s.outcomes.slice(0,2).map(o => (
-                        <span key={o} className="text-[10px] px-2 py-0.5 rounded-md bg-brand-500/5 text-brand-600 dark:text-brand-400 ring-1 ring-brand-500/20 font-medium tracking-wide">
-                          {o}
-                        </span>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              </div>
-              <ul className="mt-4 space-y-1 text-xs text-neutral-500 dark:text-neutral-400">
-                {s.features.slice(0,3).map(f => <li key={f} className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-brand-500" />{f}</li>)}
-              </ul>
-              <span className="mt-5 inline-flex items-center gap-1 text-sm font-medium text-brand-600 group-hover:gap-2 transition-all">
-                Learn More <ArrowRight className="w-4 h-4" />
-              </span>
-            </Link>
-          );
-        })}
-      </div>
-    </section>
-  );
-
   return (
     <main className="container mx-auto max-w-6xl px-6 py-16">
-      <div className="max-w-3xl">
-        <h1 className="text-4xl font-bold tracking-tight font-heading">Logistics Service Pillars</h1>
-        <p className="mt-4 text-neutral-600 dark:text-neutral-400 leading-relaxed">Two integrated solution pillars: precision vehicle relocation programs and operator dispatch enablement. Explore offerings engineered to reduce friction, improve visibility, and accelerate execution.</p>
+      <PageHeader
+        eyebrow="Services"
+        title="Operational Logistics, Built For Reliability"
+        description={<>Explore two integrated pillars—Vehicle Relocation Programs and Operator Dispatch Enablement—designed to remove friction, improve visibility, and accelerate execution.</>}
+        align="left"
+      />
+
+      {/* Value props strip */}
+      <div className="mt-8 grid gap-3 sm:grid-cols-3">
+        <div className="surface p-4 rounded-lg flex items-start gap-3">
+          <span className="inline-flex p-2 rounded-md bg-brand-600/10 text-brand-600 ring-1 ring-brand-600/20"><ShieldCheck className="w-4 h-4" /></span>
+          <div>
+            <p className="text-sm font-medium tracking-tight">Reliable by Design</p>
+            <p className="text-[12px] text-muted-foreground">Unified SOPs, vetted partners, and clear SLAs.</p>
+          </div>
+        </div>
+        <div className="surface p-4 rounded-lg flex items-start gap-3">
+          <span className="inline-flex p-2 rounded-md bg-brand-600/10 text-brand-600 ring-1 ring-brand-600/20"><Gauge className="w-4 h-4" /></span>
+          <div>
+            <p className="text-sm font-medium tracking-tight">Instant Estimates</p>
+            <p className="text-[12px] text-muted-foreground">Tiered logic + distance intelligence.</p>
+          </div>
+        </div>
+        <div className="surface p-4 rounded-lg flex items-start gap-3">
+          <span className="inline-flex p-2 rounded-md bg-brand-600/10 text-brand-600 ring-1 ring-brand-600/20"><Network className="w-4 h-4" /></span>
+          <div>
+            <p className="text-sm font-medium tracking-tight">Nationwide Coverage</p>
+            <p className="text-[12px] text-muted-foreground">Consistent process across the lower 48.</p>
+          </div>
+        </div>
       </div>
-      {renderGroup('Vehicle Relocation Programs', relocation)}
-      {renderGroup('Operator & Dispatch Enablement', dispatch)}
+
+  {/* Global services explorer */}
+  <ServicesExplorer services={services} showControls={false} />
+
+      {/* Bottom CTA */}
+      <section className="mt-16 surface-elevated p-8 rounded-xl text-center relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,rgba(42,137,255,0.15),transparent_70%)]" />
+        <h2 className="font-heading font-semibold text-2xl md:text-3xl tracking-tight">Have a program in mind?</h2>
+        <p className="mt-2 text-muted-foreground max-w-2xl mx-auto">We’ll tailor the right mix—relocation and operator support—to your goals and SLAs.</p>
+        <div className="mt-5 flex items-center justify-center gap-3">
+          <a href="/quote" className="btn-primary">Get an Estimate</a>
+          <a href="/contact" className="btn-outline">Talk To Us</a>
+        </div>
+      </section>
     </main>
   );
 }

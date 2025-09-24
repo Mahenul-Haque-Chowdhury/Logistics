@@ -1,10 +1,11 @@
-import { AnimatedHero } from "@/components/sections/AnimatedHero";
+import { EnhancedHero } from "@/components/sections/EnhancedHero";
 import Link from 'next/link';
+import { ServiceCard } from '@/components/sections/ServiceCard';
 
 export default function Home() {
   return (
     <>
-      <AnimatedHero />
+  <EnhancedHero />
 
       {/* Services Preview */}
       <section className="container max-w-6xl py-20 md:py-28">
@@ -16,16 +17,9 @@ export default function Home() {
           <Link href="/services" className="inline-flex items-center text-sm font-medium text-brand-600 hover:underline">All Services →</Link>
         </div>
         <div className="grid md:grid-cols-3 gap-8">
-          {[
-            { title: 'Last-Mile Delivery', desc: 'Fast, trackable final-mile distribution network.' },
-            { title: 'Dispatch Operations', desc: '24/7 coordination optimizing routes & utilization.' },
-            { title: 'Vehicle Relocation', desc: 'Multi-state fleet & vehicle repositioning services.' }
-          ].map(card => (
-            <div key={card.title} className="card" data-animate="fade-in">
-              <h3 className="font-semibold text-lg mb-2">{card.title}</h3>
-              <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">{card.desc}</p>
-            </div>
-          ))}
+          <ServiceCard title="Last-Mile Delivery" summary="Fast, trackable final-mile distribution network." icon="Truck" href="/services/last-mile-delivery" />
+          <ServiceCard title="Dispatch Operations" summary="24/7 coordination optimizing routes & utilization." icon="Headset" href="/services/dispatch-operations" />
+          <ServiceCard title="Vehicle Relocation" summary="Multi-state fleet & vehicle repositioning services." icon="MoveRight" href="/services/vehicle-relocation" />
         </div>
       </section>
 
@@ -63,8 +57,8 @@ export default function Home() {
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Ready to streamline your logistics?</h2>
           <p className="text-white/80 max-w-2xl mx-auto">Get a tailored solution proposal in less than 24 hours. Our team is ready.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="/quote" className="inline-flex items-center justify-center rounded-md bg-white text-brand-700 font-medium px-6 py-3 text-sm hover:bg-neutral-100 transition">Request a Quote</a>
-            <a href="/contact" className="inline-flex items-center justify-center rounded-md border border-white/40 px-6 py-3 text-sm font-medium hover:bg-white/10 transition">Talk to an Expert</a>
+            <a href="/quote" className="inline-flex items-center justify-center rounded-md bg-white text-brand-700 font-medium px-6 py-3 text-sm hover:bg-neutral-100 transition focus-ring">Request a Quote</a>
+            <a href="/contact" className="inline-flex items-center justify-center rounded-md border border-white/40 px-6 py-3 text-sm font-medium hover:bg-white/10 transition focus-ring">Talk to an Expert</a>
           </div>
         </div>
       </section>

@@ -76,11 +76,11 @@ export function PageTransition({ children }: { children: React.ReactNode }) {
       <AnimatePresence mode="wait">
         <motion.div
           key={pathname}
-          initial={reducedMotion ? { opacity: 0 } : { opacity: 0, y: 12 }}
-            animate={reducedMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
-            exit={reducedMotion ? { opacity: 0 } : { opacity: 0, y: -12 }}
-            transition={{ duration: reducedMotion ? 0.15 : 0.35, ease: 'easeOut' }}
-            className="will-change-transform">
+          initial={reducedMotion ? { opacity: 0 } : { opacity: 0, y: 14 }}
+          animate={reducedMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
+          exit={reducedMotion ? { opacity: 0 } : { opacity: 0, y: -14 }}
+          transition={{ duration: reducedMotion ? 0.18 : 0.3, ease: [0.4,0.2,0.2,1] }}
+          className="will-change-transform">
           {children}
         </motion.div>
       </AnimatePresence>

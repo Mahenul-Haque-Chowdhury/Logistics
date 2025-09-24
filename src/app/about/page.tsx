@@ -1,146 +1,118 @@
+import { PageHeader } from '@/components/sections/PageHeader';
+import { Target, ShieldCheck, RefreshCw, Users2, Activity, HeartHandshake, Rocket, Compass, Sparkles, Clock, BarChart3, Brain } from 'lucide-react';
+
+const values = [
+  { icon: Target, title: 'Clarity First', desc: 'Plain pricing, clear ETAs, no surprises—ever.' },
+  { icon: ShieldCheck, title: 'Reliability', desc: 'Commitments matter. We engineer for consistency.' },
+  { icon: HeartHandshake, title: 'Proactive Care', desc: 'We communicate before you need to ask.' },
+  { icon: Users2, title: 'Human Approach', desc: 'Tech accelerates; accountability stays human.' },
+  { icon: RefreshCw, title: 'Continuous Improvement', desc: 'Every move feeds the improvement loop.' },
+  { icon: Activity, title: 'Integrity', desc: 'If something slips, we own it—and fix it fast.' }
+];
+
+const differentiators = [
+  { icon: Rocket, title: 'Instant, Honest Estimates', desc: 'Tiered logic & real routing—not vague ranges.' },
+  { icon: Compass, title: 'Distance Intelligence', desc: 'True driving routes with cached geo lookups.' },
+  { icon: Sparkles, title: 'Program Scalability', desc: 'Supports recurring + multi-location logistics.' },
+  { icon: Brain, title: 'Transparent Cost Model', desc: 'No hidden surcharges. Clear input factors.' },
+  { icon: Clock, title: 'Speed + Precision', desc: 'Fast quoting + operational realism combined.' },
+  { icon: BarChart3, title: 'Customer-Led Roadmap', desc: 'We ship what reduces friction—not vanity.' }
+];
+
 export default function AboutPage() {
   return (
-    <main className="container mx-auto max-w-6xl px-6 py-16">
-      <h1 className="text-4xl font-bold tracking-tight">About Us</h1>
-      <p className="mt-4 text-lg text-muted-foreground max-w-3xl">
-        We exist to make vehicle relocation and specialized transport radically simpler, more transparent, and reliably on‑time. 
-        What used to require phone tag, mystery pricing, and waiting hours for a quote now happens in seconds with clarity you can trust.
-      </p>
+    <main className="container mx-auto max-w-6xl px-6 py-20">
+      <PageHeader
+        eyebrow="About Us"
+        title="Logistics Execution Built For Reliability"
+        description={<>
+          We make vehicle relocation and specialized transport radically simpler, transparent, and reliably on‑time. What used to require phone tag and waiting hours for a quote now happens in seconds—with clarity you can trust.
+        </>}
+        align="left"
+      />
 
-      <section className="mt-12 grid gap-10 md:grid-cols-2">
-        <div>
-          <h2 className="text-2xl font-semibold tracking-tight">Our Mission</h2>
-          <p className="mt-3 text-muted-foreground leading-relaxed">
-            Deliver frictionless, data‑guided transport coordination that feels modern, human, and obsessively dependable—whether you are moving one vehicle or coordinating a scaled program across states.
-          </p>
+      <section className="mt-20 grid gap-10 md:grid-cols-2">
+        <div className="space-y-4">
+          <h2 className="font-heading font-semibold text-2xl tracking-tight flex items-center gap-2"><Target className="w-5 h-5 text-brand-600" /> Mission</h2>
+          <p className="text-muted-foreground leading-relaxed">Deliver frictionless, data‑guided transport coordination that feels modern, human, and obsessively dependable—whether moving a single unit or scaling multi-state programs.</p>
         </div>
-        <div>
-          <h2 className="text-2xl font-semibold tracking-tight">Our Vision</h2>
-          <p className="mt-3 text-muted-foreground leading-relaxed">
-            A logistics experience where instant insight replaces guesswork, automation removes repetitive follow‑ups, and every milestone is proactive—not reactive.
-          </p>
+        <div className="space-y-4">
+          <h2 className="font-heading font-semibold text-2xl tracking-tight flex items-center gap-2"><Compass className="w-5 h-5 text-brand-600" /> Vision</h2>
+          <p className="text-muted-foreground leading-relaxed">A logistics experience where instant insight replaces guesswork, automation reduces noise, and every milestone is proactive—not reactive.</p>
         </div>
       </section>
 
-      <section className="mt-16">
-        <h2 className="text-2xl font-semibold tracking-tight">Core Values</h2>
-        <ul className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          <li className="rounded-lg border bg-card p-5 shadow-sm">
-            <h3 className="font-medium">Clarity First</h3>
-            <p className="mt-2 text-sm text-muted-foreground">Plain pricing, clear ETAs, no surprises—ever.</p>
-          </li>
-          <li className="rounded-lg border bg-card p-5 shadow-sm">
-            <h3 className="font-medium">Reliability</h3>
-            <p className="mt-2 text-sm text-muted-foreground">Commitments matter. We engineer for consistency, not luck.</p>
-          </li>
-          <li className="rounded-lg border bg-card p-5 shadow-sm">
-            <h3 className="font-medium">Proactive Care</h3>
-            <p className="mt-2 text-sm text-muted-foreground">We communicate before you have to ask. Silence is not status.</p>
-          </li>
-          <li className="rounded-lg border bg-card p-5 shadow-sm">
-            <h3 className="font-medium">Human Approach</h3>
-            <p className="mt-2 text-sm text-muted-foreground">Technology accelerates us; it never replaces accountability.</p>
-          </li>
-          <li className="rounded-lg border bg-card p-5 shadow-sm">
-            <h3 className="font-medium">Continuous Improvement</h3>
-            <p className="mt-2 text-sm text-muted-foreground">Every route, quote, and handoff is a learning loop.</p>
-          </li>
-          <li className="rounded-lg border bg-card p-5 shadow-sm">
-            <h3 className="font-medium">Integrity</h3>
-            <p className="mt-2 text-sm text-muted-foreground">If something slips, we own it—and fix it fast.</p>
-          </li>
+      <section className="mt-24">
+        <h2 className="font-heading font-semibold text-2xl tracking-tight">Core Values</h2>
+        <ul className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {values.map(v => (
+            <li key={v.title} className="surface p-5 flex flex-col gap-3">
+              <span className="inline-flex p-2 rounded-md bg-brand-600/10 text-brand-600 dark:text-brand-400 ring-1 ring-brand-600/20 w-max"><v.icon className="w-5 h-5" /></span>
+              <h3 className="font-medium tracking-tight">{v.title}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">{v.desc}</p>
+            </li>
+          ))}
         </ul>
       </section>
 
-      <section className="mt-16">
-        <h2 className="text-2xl font-semibold tracking-tight">What Makes Us Different</h2>
-        <div className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          <div className="rounded-lg border bg-card p-5 shadow-sm">
-            <h3 className="font-medium">Instant, Honest Estimates</h3>
-            <p className="mt-2 text-sm text-muted-foreground">Real inputs, tiered logic, and distance intelligence—not vague ranges.</p>
-          </div>
-          <div className="rounded-lg border bg-card p-5 shadow-sm">
-            <h3 className="font-medium">Distance Intelligence</h3>
-            <p className="mt-2 text-sm text-muted-foreground">We calculate true driving routes with caching for speed & accuracy.</p>
-          </div>
-          <div className="rounded-lg border bg-card p-5 shadow-sm">
-            <h3 className="font-medium">Scalable for Programs</h3>
-            <p className="mt-2 text-sm text-muted-foreground">Built to support recurring, multi‑location moves—not just one‑offs.</p>
-          </div>
-          <div className="rounded-lg border bg-card p-5 shadow-sm">
-            <h3 className="font-medium">Transparent Cost Model</h3>
-            <p className="mt-2 text-sm text-muted-foreground">No hidden surcharges—each factor is explicit and explainable.</p>
-          </div>
-          <div className="rounded-lg border bg-card p-5 shadow-sm">
-            <h3 className="font-medium">Speed + Precision</h3>
-            <p className="mt-2 text-sm text-muted-foreground">Fast quoting without sacrificing operational realism.</p>
-          </div>
-          <div className="rounded-lg border bg-card p-5 shadow-sm">
-            <h3 className="font-medium">Customer-Led Roadmap</h3>
-            <p className="mt-2 text-sm text-muted-foreground">We ship what reduces friction—not vanity features.</p>
-          </div>
+      <section className="mt-24">
+        <h2 className="font-heading font-semibold text-2xl tracking-tight">What Makes Us Different</h2>
+        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {differentiators.map(d => (
+            <div key={d.title} className="surface p-5 flex flex-col gap-3">
+              <span className="inline-flex p-2 rounded-md bg-brand-600/10 text-brand-600 dark:text-brand-400 ring-1 ring-brand-600/20 w-max"><d.icon className="w-5 h-5" /></span>
+              <h3 className="font-medium tracking-tight">{d.title}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">{d.desc}</p>
+            </div>
+          ))}
         </div>
       </section>
 
-      <section className="mt-16">
-        <h2 className="text-2xl font-semibold tracking-tight">Near-Term Goals</h2>
-        <ul className="mt-6 space-y-4 text-sm text-muted-foreground">
-          <li><span className="font-medium text-foreground">1.</span> Add real-time status tracking & milestone notifications.</li>
-          <li><span className="font-medium text-foreground">2.</span> Expand optimization logic for multi-vehicle batching.</li>
-          <li><span className="font-medium text-foreground">3.</span> Introduce secure customer dashboard with historical analytics.</li>
-          <li><span className="font-medium text-foreground">4.</span> Publish reliability metrics with month-over-month transparency.</li>
-          <li><span className="font-medium text-foreground">5.</span> Launch partner carrier quality scoring model.</li>
+      <section className="mt-24">
+        <h2 className="font-heading font-semibold text-2xl tracking-tight">Near-Term Goals</h2>
+        <ul className="mt-6 space-y-4 text-sm text-muted-foreground max-w-2xl">
+          <li><span className="font-medium text-foreground">1.</span> Real-time milestone tracking & notifications.</li>
+          <li><span className="font-medium text-foreground">2.</span> Expanded optimization for multi-vehicle batching.</li>
+          <li><span className="font-medium text-foreground">3.</span> Secure customer dashboard with historical analytics.</li>
+          <li><span className="font-medium text-foreground">4.</span> Published reliability metrics (rolling transparency).</li>
+          <li><span className="font-medium text-foreground">5.</span> Carrier quality scoring & continuous improvement loop.</li>
         </ul>
       </section>
 
-      <section className="mt-16">
-        <h2 className="text-2xl font-semibold tracking-tight">Solution Pillars</h2>
-        <div className="mt-6 grid gap-6 md:grid-cols-2">
-          <div className="rounded-xl border bg-card p-6 shadow-sm">
-            <h3 className="font-medium text-lg">Vehicle Relocation Programs</h3>
-            <p className="mt-2 text-sm text-muted-foreground leading-relaxed">Structured offerings spanning individual unit moves, multi-site fleet rebalancing, protected enclosed transport, time-sensitive fastlane routing, specialty/exotic concierge handling, and nationwide coverage consistency.</p>
-            <ul className="mt-4 space-y-2 text-xs text-muted-foreground">
-              <li>• Individual Vehicle Transport</li>
-              <li>• Fleet Shift & Rebalancing</li>
-              <li>• Protected Enclosed Transport</li>
-              <li>• Priority FastLane Moves</li>
-              <li>• Specialty & Exotic Concierge</li>
-              <li>• National Coverage Network</li>
-            </ul>
-          </div>
-          <div className="rounded-xl border bg-card p-6 shadow-sm">
-            <h3 className="font-medium text-lg">Operator & Dispatch Enablement</h3>
-            <p className="mt-2 text-sm text-muted-foreground leading-relaxed">Support stack for independent operators and scaled fleets: always-on dispatch desk, live visibility suite, low-risk pilot onboarding, billing & settlement hub, performance & compliance scoring, and regulatory support.</p>
-            <ul className="mt-4 space-y-2 text-xs text-muted-foreground">
-              <li>• Operator Dispatch Desk</li>
-              <li>• Live Visibility Suite</li>
-              <li>• Zero-Risk Pilot Program</li>
-              <li>• Billing & Settlement Hub</li>
-              <li>• Performance & Compliance Scoring</li>
-              <li>• Regulatory Support Suite</li>
-            </ul>
-          </div>
+      <section className="mt-24 grid gap-10 md:grid-cols-2">
+        <div className="surface p-6 rounded-xl">
+          <h3 className="font-heading font-semibold text-lg tracking-tight">Vehicle Relocation Programs</h3>
+          <p className="mt-3 text-sm text-muted-foreground leading-relaxed">Offerings spanning individual unit moves, fleet rebalancing, enclosed protection, fastlane priority, exotic concierge handling, and nationwide coverage consistency.</p>
+          <ul className="mt-4 grid text-[11px] gap-1 text-muted-foreground">
+            {['Individual Transport','Fleet Rebalancing','Enclosed Protection','Priority FastLane','Exotic Concierge','National Coverage'].map(i => <li key={i}>• {i}</li>)}
+          </ul>
+        </div>
+        <div className="surface p-6 rounded-xl">
+          <h3 className="font-heading font-semibold text-lg tracking-tight">Operator & Dispatch Enablement</h3>
+          <p className="mt-3 text-sm text-muted-foreground leading-relaxed">Support stack: always-on dispatch desk, live visibility suite, risk-free pilot onboarding, billing & settlement hub, performance scoring, and regulatory assistance.</p>
+          <ul className="mt-4 grid text-[11px] gap-1 text-muted-foreground">
+            {['Dispatch Desk','Visibility Suite','Pilot Program','Billing Hub','Performance Scoring','Regulatory Support'].map(i => <li key={i}>• {i}</li>)}
+          </ul>
         </div>
       </section>
 
-      <section className="mt-16">
-        <h2 className="text-2xl font-semibold tracking-tight">Our Promise</h2>
-        <p className="mt-4 text-muted-foreground max-w-3xl leading-relaxed">
-          We treat every relocation—single unit or fleet—as a trust decision. You deserve accurate expectations, responsive updates, and professionals who sweat operational details so you do not have to. Excellence for us is not a slogan; it is a measurable standard we are willing to surface publicly.
-        </p>
+      <section className="mt-24">
+        <h2 className="font-heading font-semibold text-2xl tracking-tight">Our Promise</h2>
+        <p className="mt-4 text-muted-foreground max-w-3xl leading-relaxed">Every relocation—single unit or fleet—is a trust decision. You deserve accurate expectations, proactive updates, and operators who sweat operational detail so you don’t have to. Excellence isn’t a slogan; it’s a measurable standard we surface.</p>
       </section>
 
-      <section className="mt-16">
-        <h2 className="text-2xl font-semibold tracking-tight">Impact Metrics (Coming Soon)</h2>
-        <p className="mt-4 text-sm text-muted-foreground">On-time delivery rate • Average response time • Route accuracy delta • Customer satisfaction index</p>
+      <section className="mt-24">
+        <h2 className="font-heading font-semibold text-2xl tracking-tight">Impact Metrics (Coming Soon)</h2>
+        <p className="mt-4 text-sm text-muted-foreground">On-time delivery rate • Avg response time • Route accuracy delta • Customer satisfaction index</p>
       </section>
 
-      <section className="mt-20 rounded-xl border bg-gradient-to-br from-background to-muted p-10 text-center shadow-sm">
-        <h2 className="text-2xl font-semibold tracking-tight">Ready To Move With Confidence?</h2>
-        <p className="mt-3 text-muted-foreground max-w-2xl mx-auto">Get an instant estimate in seconds—then let our team turn it into a seamless, proactive execution plan.</p>
+      <section className="mt-28 surface-elevated text-center p-10 relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,rgba(42,137,255,0.15),transparent_70%)]" />
+        <h2 className="font-heading font-semibold text-2xl md:text-3xl tracking-tight">Ready To Move With Confidence?</h2>
+        <p className="mt-3 text-muted-foreground max-w-2xl mx-auto leading-relaxed">Get an instant estimate—then let our team turn it into proactive execution.</p>
         <div className="mt-6 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-          <a href="/quote" className="inline-flex items-center rounded-md bg-brand-600 px-6 py-3 text-sm font-medium text-white shadow hover:bg-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2">Instant Estimate</a>
-          <a href="/contact" className="inline-flex items-center rounded-md border px-6 py-3 text-sm font-medium hover:bg-accent">Talk To Us</a>
+          <a href="/quote" className="btn-primary px-6">Instant Estimate</a>
+          <a href="/contact" className="btn-outline">Talk To Us</a>
         </div>
       </section>
     </main>

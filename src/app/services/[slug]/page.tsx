@@ -120,21 +120,21 @@ export default async function ServiceDetail({ params }: { params: Promise<Params
             )}
         </div>
 
-        <aside className="space-y-8">
-          <div className="rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950/60 p-6 shadow-soft">
+        <aside className="space-y-8 lg:sticky lg:top-24 h-max">
+          <div className="surface p-6">
             <h3 className="font-heading font-semibold tracking-tight text-base mb-2">Engage This Service</h3>
             <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed mb-5">Outline scope, timelines, and integration considerations with our team. We calibrate expectations early.</p>
             <div className="flex flex-col gap-3">
-              <Link href="/quote" className="w-full inline-flex justify-center items-center h-10 rounded-md bg-brand-600 hover:bg-brand-700 text-white text-sm font-medium transition-colors">
+              <Link href="/quote" className="w-full inline-flex justify-center items-center h-10 rounded-md bg-brand-600 hover:bg-brand-700 text-white text-sm font-medium transition-colors focus-ring">
                 {svc.ctaLabel || 'Request a Quote'}
               </Link>
-              <Link href="/contact" className="w-full inline-flex justify-center items-center h-10 rounded-md border border-neutral-300 dark:border-neutral-700 text-sm font-medium hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors">
+              <Link href="/contact" className="w-full inline-flex justify-center items-center h-10 rounded-md border border-neutral-300 dark:border-neutral-700 text-sm font-medium hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors focus-ring">
                 Talk to Us
               </Link>
             </div>
           </div>
           {svc.idealCustomers && (
-            <div className="rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950/60 p-6 shadow-soft">
+            <div className="surface p-6">
               <h4 className="text-xs font-semibold uppercase tracking-wide text-neutral-500 dark:text-neutral-400 mb-4">Ideal Profiles</h4>
               <ul className="space-y-2 text-sm">
                 {svc.idealCustomers.map(c => (
