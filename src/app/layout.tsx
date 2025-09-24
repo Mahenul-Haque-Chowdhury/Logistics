@@ -7,6 +7,7 @@ import { Footer } from "@/components/layout/Footer";
 import { ThemeProvider } from "@/components/layout/ThemeProvider";
 import { CookieConsent } from "@/components/ui/CookieConsent";
 import { PageTransition } from "@/components/layout/PageTransition";
+import { BRAND_NAME } from '@/lib/brand';
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
@@ -14,8 +15,8 @@ const lexend = Lexend({ variable: "--font-lexend", subsets: ["latin"], display: 
 
 export const metadata: Metadata = {
   title: {
-    default: "Modern Logistics Solutions",
-    template: "%s | Logistics"
+    default: `${BRAND_NAME} | Modern Logistics Solutions`,
+    template: `%s | ${BRAND_NAME}`
   },
   description: "US logistics solutions: last-mile delivery, dispatch operations, vehicle relocation, tracking.",
   keywords: ["logistics","last-mile","dispatch","vehicle relocation","delivery"],
@@ -52,7 +53,7 @@ export default function RootLayout({
         <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify({
           '@context': 'https://schema.org',
           '@type': 'Organization',
-          name: 'CompanyName',
+          name: BRAND_NAME,
           url: 'https://example.com',
           logo: 'https://example.com/logo.png',
           sameAs: [

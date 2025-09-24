@@ -5,6 +5,7 @@ import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { BRAND_NAME } from '@/lib/brand';
 
 const links: { href: string; label: string }[] = [
 	{ href: "/services", label: "Services" },
@@ -34,7 +35,14 @@ export function Navbar() {
 				{/* Left: Logo (responsive shrink) */}
 				<div className="flex items-center flex-shrink min-w-0 max-w-[50vw] xs:max-w-[42vw] sm:max-w-none">
 					<Link href="/" className="font-bold tracking-tight font-heading leading-none whitespace-nowrap text-[1.02rem] sm:text-lg md:text-xl truncate" onClick={close}>
-						<span className="text-brand-600">Company</span>Name
+						{/* Stylize first token if it matches expected pattern */}
+						{BRAND_NAME.includes(' ') ? (
+							<span>
+								<span className="text-brand-600">{BRAND_NAME.split(' ')[0]}</span>{' '}{BRAND_NAME.split(' ').slice(1).join(' ')}
+							</span>
+						) : (
+							<span className="text-brand-600">{BRAND_NAME}</span>
+						)}
 					</Link>
 				</div>
 				{/* Middle: Centered nav (absolute centering within relative container) */}

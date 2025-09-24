@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BRAND_NAME } from '@/lib/brand';
 
 export function Footer() {
   return (
@@ -6,7 +7,13 @@ export function Footer() {
       <div className="container py-14 grid gap-10 md:grid-cols-5">
         <div className="md:col-span-2 space-y-4">
           <Link href="/" className="font-heading text-xl font-semibold">
-            <span className="text-brand-600">Company</span>Name
+            {BRAND_NAME.includes(' ') ? (
+              <span>
+                <span className="text-brand-600">{BRAND_NAME.split(' ')[0]}</span>{' '}{BRAND_NAME.split(' ').slice(1).join(' ')}
+              </span>
+            ) : (
+              <span className="text-brand-600">{BRAND_NAME}</span>
+            )}
           </Link>
           <p className="text-neutral-600 dark:text-neutral-400 max-w-sm text-sm leading-relaxed">US-based logistics partner specializing in last-mile delivery, dispatch operations, and vehicle relocation with real-time visibility.</p>
           <p className="text-xs text-neutral-500 dark:text-neutral-500">Headquarters: 1234 Logistics Parkway, Dallas, TX 75201 USA</p>
@@ -38,7 +45,7 @@ export function Footer() {
       </div>
       <div className="border-t border-neutral-200/60 dark:border-neutral-800/60 py-6 text-xs text-neutral-500">
         <div className="container flex flex-col sm:flex-row items-center justify-between gap-3">
-          <span className="order-2 sm:order-1 text-center sm:text-left">© {new Date().getFullYear()} CompanyName. All rights reserved.</span>
+          <span className="order-2 sm:order-1 text-center sm:text-left">© {new Date().getFullYear()} {BRAND_NAME}. All rights reserved.</span>
           <a
             href="https://arnob.life"
             target="_blank"

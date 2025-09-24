@@ -1,4 +1,5 @@
 import { PageHeader } from '@/components/sections/PageHeader';
+import { BRAND_NAME } from '@/lib/brand';
 import { Target, ShieldCheck, RefreshCw, Users2, Activity, HeartHandshake, Rocket, Compass, Sparkles, Clock, BarChart3, Brain } from 'lucide-react';
 
 const values = [
@@ -26,7 +27,7 @@ export default function AboutPage() {
         eyebrow="About Us"
         title="Logistics Execution Built For Reliability"
         description={<>
-          We make vehicle relocation and specialized transport radically simpler, transparent, and reliably on‑time. What used to require phone tag and waiting hours for a quote now happens in seconds—with clarity you can trust.
+          {BRAND_NAME} makes vehicle relocation and specialized transport radically simpler, transparent, and reliably on‑time. What used to require phone tag and waiting hours for a quote now happens in seconds—with clarity you can trust.
         </>}
         align="left"
       />
