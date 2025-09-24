@@ -1,6 +1,6 @@
 "use client";
 import Link from 'next/link';
-import { LogisticsNetwork } from './LogisticsNetwork';
+import Image from 'next/image';
 
 const stats: { label: string; value: string }[] = [
   { label: 'Shipments / week', value: '1200+' },
@@ -31,7 +31,15 @@ export function EnhancedHero() {
           </div>
         </div>
         <div className="flex flex-col gap-6">
-          <LogisticsNetwork />
+          <div className="relative w-full h-64 md:h-80 lg:h-[420px] rounded-xl overflow-hidden ring-1 ring-border/60 bg-neutral-900 dark:bg-neutral-950 flex items-center justify-center">
+            <Image
+              src="/network-map-cars.png"
+              alt="Vehicle relocation coverage across the United States"
+              fill
+              priority
+              className="object-contain p-4" />
+            <div className="absolute bottom-3 left-4 text-xs uppercase tracking-wide text-neutral-400/80 font-medium">Network Flow</div>
+          </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {stats.map(s => (
               <div key={s.label} className="surface p-4 flex flex-col gap-1.5">
