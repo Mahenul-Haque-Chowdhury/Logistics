@@ -69,7 +69,7 @@ export function Navbar() {
 				<div className="flex items-center gap-3 flex-shrink-0">
 					<ThemeToggle />
 							{/* Desktop primary CTA */}
-							<Link href="/quote" className="hidden md:inline-flex btn-primary h-10 px-5 text-sm font-medium whitespace-nowrap leading-none" onClick={close}>Request Quote</Link>
+							<Link href="/quote" className="hidden lg:inline-flex btn-primary h-10 px-5 text-sm font-medium whitespace-nowrap leading-none" onClick={close}>Request Quote</Link>
 					<button
 						className="md:hidden inline-flex items-center justify-center p-2 rounded-md border border-neutral-300 dark:border-neutral-700 focus-ring"
 						onClick={()=>setOpen(o=>!o)}
