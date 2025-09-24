@@ -1,5 +1,4 @@
 import { PageHeader } from '@/components/sections/PageHeader';
-import { MiniNetwork } from '@/components/sections/MiniNetwork';
 import { Target, ShieldCheck, RefreshCw, Users2, Activity, HeartHandshake, Rocket, Compass, Sparkles, Clock, BarChart3, Brain } from 'lucide-react';
 
 const values = [
@@ -23,20 +22,14 @@ const differentiators = [
 export default function AboutPage() {
   return (
     <main className="container mx-auto max-w-6xl px-6 py-20">
-      <div className="relative">
-        <div className="absolute inset-0 -z-10 rounded-3xl overflow-hidden ring-1 ring-border/50">
-          <MiniNetwork className="h-64" density={26} />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background" />
-        </div>
-        <PageHeader
-          eyebrow="About Us"
-          title="Logistics Execution Built For Reliability"
-          description={<>
-            We make vehicle relocation and specialized transport radically simpler, transparent, and reliably on‑time. What used to require phone tag and waiting hours for a quote now happens in seconds—with clarity you can trust.
-          </>}
-          align="left"
-        />
-      </div>
+      <PageHeader
+        eyebrow="About Us"
+        title="Logistics Execution Built For Reliability"
+        description={<>
+          We make vehicle relocation and specialized transport radically simpler, transparent, and reliably on‑time. What used to require phone tag and waiting hours for a quote now happens in seconds—with clarity you can trust.
+        </>}
+        align="left"
+      />
 
       <section className="mt-20 grid gap-10 md:grid-cols-2">
         <div className="space-y-4">

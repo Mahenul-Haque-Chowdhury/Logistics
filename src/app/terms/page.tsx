@@ -1,17 +1,10 @@
 export const metadata = { title: 'Terms of Use' };
 import { PageHeader } from '@/components/sections/PageHeader';
-import { MiniNetwork } from '@/components/sections/MiniNetwork';
 
 export default function TermsPage() {
   return (
     <main className="container py-16 max-w-5xl px-6">
-      <div className="relative mb-10">
-        <div className="absolute inset-0 -z-10 overflow-hidden rounded-3xl ring-1 ring-border/50">
-          <MiniNetwork className="h-48" density={18} />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background" />
-        </div>
-        <PageHeader eyebrow="Policy" title="Terms of Use" description={<span>Conditions governing access and usage of our estimation tools and logistics services.</span>} align="left" />
-      </div>
+      <PageHeader eyebrow="Policy" title="Terms of Use" description={<span>Conditions governing access and usage of our estimation tools and logistics services.</span>} align="left" />
       <div className="prose prose-neutral dark:prose-invert max-w-none">
       <p className="text-sm -mt-3 text-neutral-500 dark:text-neutral-400">Last updated {new Date().getFullYear()}</p>
   <p>These Terms of Use (&quot;Terms&quot;) govern your access to and use of our website, tools, quote calculator, and any related services (collectively, the &quot;Services&quot;). By accessing or using the Services you agree to these Terms.</p>

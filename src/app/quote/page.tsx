@@ -5,7 +5,6 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import type { ReactNode } from 'react';
 import { PageHeader } from '@/components/sections/PageHeader';
-import { MiniNetwork } from '@/components/sections/MiniNetwork';
 import { Calculator, Zap, ShieldCheck, CarFront, Fuel, Gauge, Truck, Database } from 'lucide-react';
 
 /* --------------------------------- Config --------------------------------- */
@@ -202,19 +201,13 @@ export default function QuotePage() {
 
   /* --------------------------------- Rendering -------------------------------- */
   return (
-    <main className="container mx-auto max-w-6xl px-6 py-20">
-      <div className="relative">
-        <div className="absolute inset-0 -z-10 rounded-3xl overflow-hidden ring-1 ring-border/50">
-          <MiniNetwork className="h-60" density={24} />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background" />
-        </div>
-        <PageHeader
-          eyebrow="Instant Estimate"
-          title="Logistics Pricing In Real Time"
-          description={<>Generate a ballpark estimate using ZIP pairs, distance intelligence, and service tier logic. Adjust fields and the quote recalculates instantly.</>}
-          align="left"
-        />
-      </div>
+  <main className="container mx-auto max-w-6xl px-6 py-20">
+    <PageHeader
+      eyebrow="Instant Estimate"
+      title="Logistics Pricing In Real Time"
+      description={<>Generate a ballpark estimate using ZIP pairs, distance intelligence, and service tier logic. Adjust fields and the quote recalculates instantly.</>}
+      align="left"
+    />
   <div className="mt-14 grid gap-8 lg:grid-cols-[300px_1fr]">
         {/* Sidebar */}
         <aside className="space-y-6">

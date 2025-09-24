@@ -3,7 +3,6 @@ import type { Metadata } from 'next';
 import { services } from '@/lib/data';
 import { Icons } from './service-icons';
 import Link from 'next/link';
-import { MiniNetwork } from '@/components/sections/MiniNetwork';
 
 interface Params { slug: string }
 
@@ -32,12 +31,7 @@ export default async function ServiceDetail({ params }: { params: Promise<Params
         <span>/</span>
         <span className="text-neutral-700 dark:text-neutral-300">{svc.title}</span>
       </nav>
-      <div className="relative mb-12">
-        <div className="absolute inset-0 -z-10 overflow-hidden rounded-3xl ring-1 ring-border/50">
-          <MiniNetwork className="h-56" density={28} />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background" />
-        </div>
-        <header className="flex flex-col md:flex-row md:items-start gap-6 md:gap-8 py-4">
+      <header className="flex flex-col md:flex-row md:items-start gap-6 md:gap-8 mb-12">
           <div className="flex items-center gap-4">
             {IconComp && <span className="inline-flex p-3 rounded-xl bg-brand-50 dark:bg-brand-500/10 text-brand-600 dark:text-brand-400 ring-1 ring-brand-500/20"><IconComp className="w-8 h-8" /></span>}
             <div>
@@ -62,7 +56,6 @@ export default async function ServiceDetail({ params }: { params: Promise<Params
             </div>
           </div>
         </header>
-      </div>
 
   <div className="mt-12 md:mt-14 grid lg:grid-cols-3 gap-10">
         <div className="lg:col-span-2 space-y-14">

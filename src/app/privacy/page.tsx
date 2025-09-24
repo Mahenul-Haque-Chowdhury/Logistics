@@ -1,17 +1,10 @@
 export const metadata = { title: 'Privacy Notice' };
 import { PageHeader } from '@/components/sections/PageHeader';
-import { MiniNetwork } from '@/components/sections/MiniNetwork';
 
 export default function PrivacyPage() {
   return (
     <main className="container py-16 max-w-5xl px-6">
-      <div className="relative mb-10">
-        <div className="absolute inset-0 -z-10 overflow-hidden rounded-3xl ring-1 ring-border/50">
-          <MiniNetwork className="h-48" density={18} />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background" />
-        </div>
-        <PageHeader eyebrow="Policy" title="Privacy Notice" description={<span>How we handle, store, and protect submitted and derived data across our logistics interfaces.</span>} align="left" />
-      </div>
+      <PageHeader eyebrow="Policy" title="Privacy Notice" description={<span>How we handle, store, and protect submitted and derived data across our logistics interfaces.</span>} align="left" />
       <div className="prose prose-neutral dark:prose-invert max-w-none">
       <p className="text-sm -mt-3 text-neutral-500 dark:text-neutral-400">Last updated {new Date().getFullYear()}</p>
       <p>This Privacy Notice explains how we collect, use, and protect information when you interact with our logistics estimation tools, forms, and services.</p>
