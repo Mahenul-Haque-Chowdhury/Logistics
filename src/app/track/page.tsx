@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { TrackingEvent } from '@/types';
 import { TrackingMap } from '@/components/track/TrackingMap';
 import { mockTrackingEvents } from '@/lib/data';
-import { Loader2, Circle, CheckCircle2, PackageSearch, Map, Truck, Clock, CheckCircle, RefreshCw } from 'lucide-react';
+import { Loader2, Circle, PackageSearch, Map, Truck, Clock, CheckCircle, RefreshCw } from 'lucide-react';
 import { PageHeader } from '@/components/sections/PageHeader';
 
 export default function TrackPage() {

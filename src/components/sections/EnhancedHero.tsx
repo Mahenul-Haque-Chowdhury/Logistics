@@ -1,6 +1,5 @@
 "use client";
 import Link from 'next/link';
-import { motion } from 'framer-motion';
 
 const stats: { label: string; value: string }[] = [
   { label: 'Shipments / week', value: '1200+' },

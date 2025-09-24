@@ -3,6 +3,7 @@ import { useMemo, useState } from 'react';
 import Link from 'next/link';
 import { Service } from '@/types';
 import { ServiceCard } from '@/components/sections/ServiceCard';
+import { Service as ServiceType } from '@/types';
 import { Sparkles, Star } from 'lucide-react';
 
 type Category = 'all' | 'relocation' | 'dispatch';
@@ -63,17 +64,22 @@ export function ServicesExplorer({ services, showControls = true }: { services: 
 
       {/* Grid */}
       <div className="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-        {filtered.map(s => (
-          <ServiceCard
-            key={s.slug}
-            title={s.title}
-            summary={s.summary}
-            icon={(s.icon as any) || 'Truck'}
-            href={`/services/${s.slug}`}
-            outcomes={s.outcomes}
-            tier={s.tier}
-          />
-        ))}
+        {filtered.map((s) => {
+          const validIcons = ['Ship', 'Boxes', 'Truck', 'Headset', 'MoveRight'] as const;
+          type IconName = (typeof validIcons)[number];
+          const icon: IconName = (validIcons.includes((s.icon as unknown as IconName)) ? (s.icon as IconName) : 'Truck');
+          return (
+            <ServiceCard
+              key={s.slug}
+              title={s.title}
+              summary={s.summary}
+              icon={icon}
+              href={`/services/${s.slug}`}
+              outcomes={s.outcomes}
+              tier={s.tier}
+            />
+          );
+        })}
       </div>
     </section>
   );
