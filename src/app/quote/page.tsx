@@ -5,6 +5,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import type { ReactNode } from 'react';
 import { PageHeader } from '@/components/sections/PageHeader';
+import { MiniNetwork } from '@/components/sections/MiniNetwork';
 import { Calculator, Zap, ShieldCheck, CarFront, Fuel, Gauge, Truck, Database } from 'lucide-react';
 
 /* --------------------------------- Config --------------------------------- */
@@ -202,16 +203,23 @@ export default function QuotePage() {
   /* --------------------------------- Rendering -------------------------------- */
   return (
     <main className="container mx-auto max-w-6xl px-6 py-20">
-      <PageHeader
-        eyebrow="Instant Estimate"
-        title="Logistics Pricing In Real Time"
-        description={<>Generate a ballpark estimate using ZIP pairs, distance intelligence, and service tier logic. Adjust fields and the quote recalculates instantly.</>}
-        align="left"
-      />
-      <div className="mt-12 grid gap-8 lg:grid-cols-[280px_1fr]">
+      <div className="relative">
+        <div className="absolute inset-0 -z-10 rounded-3xl overflow-hidden ring-1 ring-border/50">
+          <MiniNetwork className="h-60" density={24} />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background" />
+        </div>
+        <PageHeader
+          eyebrow="Instant Estimate"
+          title="Logistics Pricing In Real Time"
+          description={<>Generate a ballpark estimate using ZIP pairs, distance intelligence, and service tier logic. Adjust fields and the quote recalculates instantly.</>}
+          align="left"
+        />
+      </div>
+  <div className="mt-14 grid gap-8 lg:grid-cols-[300px_1fr]">
         {/* Sidebar */}
         <aside className="space-y-6">
-          <div className="surface p-5 rounded-xl space-y-4">
+          <div className="surface p-5 rounded-xl space-y-4 relative overflow-hidden">
+            <span className="absolute -top-10 -right-10 w-40 h-40 bg-brand-600/5 rounded-full blur-2xl" />
             <h2 className="font-heading font-medium tracking-tight flex items-center gap-2 text-sm"><Calculator className="w-4 h-4 text-brand-600" /> Estimate Overview</h2>
             <ul className="text-[11px] space-y-1 text-muted-foreground">
               <li><span className="text-foreground">Scope:</span> Lower 48 States</li>
@@ -238,7 +246,8 @@ export default function QuotePage() {
           </div>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
             {quoteSignals.map(s => (
-              <div key={s.title} className="surface p-4 rounded-lg flex items-start gap-3">
+              <div key={s.title} className="surface p-4 rounded-lg flex items-start gap-3 relative overflow-hidden">
+                <span className="absolute inset-0 opacity-0 hover:opacity-100 transition bg-gradient-to-br from-brand-600/5 to-transparent" />
                 <span className="inline-flex p-2 rounded-md bg-brand-600/10 text-brand-600 ring-1 ring-brand-600/20"><s.icon className="w-4 h-4" /></span>
                 <div className="space-y-1">
                   <h3 className="text-xs font-medium tracking-tight">{s.title}</h3>
@@ -251,7 +260,8 @@ export default function QuotePage() {
 
         {/* Main form */}
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-10">
-          <div className="surface p-6 rounded-xl space-y-8">
+          <div className="surface p-6 rounded-xl space-y-8 relative overflow-hidden">
+            <span className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_top_right,rgba(42,137,255,0.14),transparent_70%)]" />
             <h2 className="font-heading font-medium tracking-tight text-sm flex items-center gap-2"><Truck className="w-4 h-4 text-brand-600" /> Route & Load Details</h2>
             <div className="grid md:grid-cols-3 gap-5">
               <Field label="Full Name" error={errors.fullName?.message}><input {...register('fullName')} className={inputCls} /></Field>

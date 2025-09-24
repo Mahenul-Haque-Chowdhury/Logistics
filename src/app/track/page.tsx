@@ -5,6 +5,7 @@ import { TrackingMap } from '@/components/track/TrackingMap';
 import { mockTrackingEvents } from '@/lib/data';
 import { Loader2, Circle, PackageSearch, Map, Truck, Clock, CheckCircle, RefreshCw } from 'lucide-react';
 import { PageHeader } from '@/components/sections/PageHeader';
+import { MiniNetwork } from '@/components/sections/MiniNetwork';
 
 export default function TrackPage() {
   const [tn, setTn] = useState('');
@@ -32,16 +33,23 @@ export default function TrackPage() {
   }
   return (
     <main className="container mx-auto max-w-6xl px-6 py-20">
-      <PageHeader
-        eyebrow="Tracking"
-        title="Live Shipment Visibility"
-        description={<>Enter a tracking number to view status progression, location context, and milestone timestamps. Demo data preloaded for preview.</>}
-        align="left"
-      />
+      <div className="relative mb-10">
+        <div className="absolute inset-0 -z-10 overflow-hidden rounded-3xl ring-1 ring-border/50">
+          <MiniNetwork className="h-56" density={22} />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background" />
+        </div>
+        <PageHeader
+          eyebrow="Tracking"
+          title="Live Shipment Visibility"
+          description={<>Enter a tracking number to view status progression, location context, and milestone timestamps. Demo data preloaded for preview.</>}
+          align="left"
+        />
+      </div>
 
-      <div className="mt-6 grid gap-3 sm:grid-cols-3 lg:grid-cols-6">
+      <div className="mt-2 grid gap-3 sm:grid-cols-3 lg:grid-cols-6">
         {processSteps.map(s => (
-          <div key={s.title} className="surface p-3 rounded-lg flex flex-col gap-2.5">
+          <div key={s.title} className="surface p-3 rounded-lg flex flex-col gap-2.5 relative overflow-hidden">
+            <span className="absolute -top-6 -right-6 w-16 h-16 bg-brand-600/5 rounded-full blur-xl" />
             <span className="inline-flex p-1.5 rounded-md bg-brand-600/10 text-brand-600 ring-1 ring-brand-600/15 w-max"><s.icon className="w-4 h-4" /></span>
             <h3 className="text-xs font-medium tracking-tight">{s.title}</h3>
             <p className="text-[11px] text-muted-foreground leading-relaxed">{s.desc}</p>
@@ -68,7 +76,8 @@ export default function TrackPage() {
       )}
       {events && events.length > 0 && (
         <div className="mt-10 grid gap-8 lg:grid-cols-2">
-          <div className="surface p-4 rounded-lg h-[520px] flex flex-col">
+          <div className="surface p-4 rounded-lg h-[520px] flex flex-col relative overflow-hidden">
+            <span className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_top_right,rgba(42,137,255,0.12),transparent_70%)]" />
             <div className="flex items-center justify-between mb-3">
               <h3 className="text-sm font-medium tracking-tight">Route Overview</h3>
               <span className="text-[10px] uppercase tracking-wide text-muted-foreground">Map</span>

@@ -1,4 +1,5 @@
 import { PageHeader } from '@/components/sections/PageHeader';
+import { MiniNetwork } from '@/components/sections/MiniNetwork';
 import { Target, ShieldCheck, RefreshCw, Users2, Activity, HeartHandshake, Rocket, Compass, Sparkles, Clock, BarChart3, Brain } from 'lucide-react';
 
 const values = [
@@ -22,14 +23,20 @@ const differentiators = [
 export default function AboutPage() {
   return (
     <main className="container mx-auto max-w-6xl px-6 py-20">
-      <PageHeader
-        eyebrow="About Us"
-        title="Logistics Execution Built For Reliability"
-        description={<>
-          We make vehicle relocation and specialized transport radically simpler, transparent, and reliably on‑time. What used to require phone tag and waiting hours for a quote now happens in seconds—with clarity you can trust.
-        </>}
-        align="left"
-      />
+      <div className="relative">
+        <div className="absolute inset-0 -z-10 rounded-3xl overflow-hidden ring-1 ring-border/50">
+          <MiniNetwork className="h-64" density={26} />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background" />
+        </div>
+        <PageHeader
+          eyebrow="About Us"
+          title="Logistics Execution Built For Reliability"
+          description={<>
+            We make vehicle relocation and specialized transport radically simpler, transparent, and reliably on‑time. What used to require phone tag and waiting hours for a quote now happens in seconds—with clarity you can trust.
+          </>}
+          align="left"
+        />
+      </div>
 
       <section className="mt-20 grid gap-10 md:grid-cols-2">
         <div className="space-y-4">
@@ -46,7 +53,8 @@ export default function AboutPage() {
         <h2 className="font-heading font-semibold text-2xl tracking-tight">Core Values</h2>
         <ul className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {values.map(v => (
-            <li key={v.title} className="surface p-5 flex flex-col gap-3">
+            <li key={v.title} className="surface p-5 flex flex-col gap-3 relative overflow-hidden">
+              <span className="absolute -top-10 -right-8 w-32 h-32 rounded-full bg-brand-600/5 blur-xl" />
               <span className="inline-flex p-2 rounded-md bg-brand-600/10 text-brand-600 dark:text-brand-400 ring-1 ring-brand-600/20 w-max"><v.icon className="w-5 h-5" /></span>
               <h3 className="font-medium tracking-tight">{v.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">{v.desc}</p>
@@ -59,7 +67,8 @@ export default function AboutPage() {
         <h2 className="font-heading font-semibold text-2xl tracking-tight">What Makes Us Different</h2>
         <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {differentiators.map(d => (
-            <div key={d.title} className="surface p-5 flex flex-col gap-3">
+            <div key={d.title} className="surface p-5 flex flex-col gap-3 relative overflow-hidden">
+              <span className="absolute inset-0 opacity-0 hover:opacity-100 transition bg-gradient-to-br from-brand-600/5 to-transparent" />
               <span className="inline-flex p-2 rounded-md bg-brand-600/10 text-brand-600 dark:text-brand-400 ring-1 ring-brand-600/20 w-max"><d.icon className="w-5 h-5" /></span>
               <h3 className="font-medium tracking-tight">{d.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">{d.desc}</p>

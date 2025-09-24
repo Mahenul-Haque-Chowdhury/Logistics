@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { services } from '@/lib/data';
 import { Icons } from './service-icons';
 import Link from 'next/link';
+import { MiniNetwork } from '@/components/sections/MiniNetwork';
 
 interface Params { slug: string }
 
@@ -31,32 +32,37 @@ export default async function ServiceDetail({ params }: { params: Promise<Params
         <span>/</span>
         <span className="text-neutral-700 dark:text-neutral-300">{svc.title}</span>
       </nav>
-
-      <header className="flex flex-col md:flex-row md:items-start gap-6 md:gap-8">
-        <div className="flex items-center gap-4">
-          {IconComp && <span className="inline-flex p-3 rounded-xl bg-brand-50 dark:bg-brand-500/10 text-brand-600 dark:text-brand-400 ring-1 ring-brand-500/20"><IconComp className="w-8 h-8" /></span>}
-          <div>
-            <div className="flex items-center gap-3 flex-wrap">
-              <h1 className="text-4xl font-bold tracking-tight font-heading">{svc.title}</h1>
-              {svc.tier && (
-                <span className={`text-[10px] font-semibold tracking-wide px-2 py-1 rounded-full ring-1 ring-inset ${svc.tier === 'premium' ? 'bg-amber-100 text-amber-800 ring-amber-300 dark:bg-amber-400/10 dark:text-amber-300 dark:ring-amber-400/30' : 'bg-neutral-100 text-neutral-700 ring-neutral-300 dark:bg-neutral-800 dark:text-neutral-300 dark:ring-neutral-600'}`}>
-                  {svc.tier.toUpperCase()}
-                </span>
+      <div className="relative mb-12">
+        <div className="absolute inset-0 -z-10 overflow-hidden rounded-3xl ring-1 ring-border/50">
+          <MiniNetwork className="h-56" density={28} />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background" />
+        </div>
+        <header className="flex flex-col md:flex-row md:items-start gap-6 md:gap-8 py-4">
+          <div className="flex items-center gap-4">
+            {IconComp && <span className="inline-flex p-3 rounded-xl bg-brand-50 dark:bg-brand-500/10 text-brand-600 dark:text-brand-400 ring-1 ring-brand-500/20"><IconComp className="w-8 h-8" /></span>}
+            <div>
+              <div className="flex items-center gap-3 flex-wrap">
+                <h1 className="text-4xl font-bold tracking-tight font-heading">{svc.title}</h1>
+                {svc.tier && (
+                  <span className={`text-[10px] font-semibold tracking-wide px-2 py-1 rounded-full ring-1 ring-inset ${svc.tier === 'premium' ? 'bg-amber-100 text-amber-800 ring-amber-300 dark:bg-amber-400/10 dark:text-amber-300 dark:ring-amber-400/30' : 'bg-neutral-100 text-neutral-700 ring-neutral-300 dark:bg-neutral-800 dark:text-neutral-300 dark:ring-neutral-600'}`}>
+                    {svc.tier.toUpperCase()}
+                  </span>
+                )}
+              </div>
+              <p className="mt-4 text-neutral-600 dark:text-neutral-400 max-w-3xl leading-relaxed text-base">{svc.description || svc.summary}</p>
+              {svc.outcomes && (
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {svc.outcomes.slice(0,3).map(o => (
+                    <span key={o} className="text-[10px] uppercase tracking-wide font-medium px-2 py-1 rounded-md bg-brand-500/5 text-brand-600 dark:text-brand-400 ring-1 ring-brand-500/20">
+                      {o}
+                    </span>
+                  ))}
+                </div>
               )}
             </div>
-            <p className="mt-4 text-neutral-600 dark:text-neutral-400 max-w-3xl leading-relaxed text-base">{svc.description || svc.summary}</p>
-            {svc.outcomes && (
-              <div className="mt-5 flex flex-wrap gap-2">
-                {svc.outcomes.slice(0,3).map(o => (
-                  <span key={o} className="text-[10px] uppercase tracking-wide font-medium px-2 py-1 rounded-md bg-brand-500/5 text-brand-600 dark:text-brand-400 ring-1 ring-brand-500/20">
-                    {o}
-                  </span>
-                ))}
-              </div>
-            )}
           </div>
-        </div>
-      </header>
+        </header>
+      </div>
 
   <div className="mt-12 md:mt-14 grid lg:grid-cols-3 gap-10">
         <div className="lg:col-span-2 space-y-14">
@@ -64,8 +70,9 @@ export default async function ServiceDetail({ params }: { params: Promise<Params
             <h2 className="text-lg font-semibold mb-5 font-heading tracking-tight">Core Capabilities</h2>
             <div className="grid sm:grid-cols-2 gap-4">
               {svc.features.map(f => (
-                <div key={f} className="rounded-lg border border-neutral-200 dark:border-neutral-800 p-5 bg-white dark:bg-neutral-950/40 shadow-soft">
-                  <p className="text-sm font-medium leading-snug">{f}</p>
+                <div key={f} className="surface p-5 rounded-lg relative overflow-hidden">
+                  <span className="absolute -top-6 -right-6 w-16 h-16 bg-brand-600/5 rounded-full blur-xl" />
+                  <p className="text-sm font-medium leading-snug relative">{f}</p>
                 </div>
               ))}
             </div>
@@ -76,7 +83,8 @@ export default async function ServiceDetail({ params }: { params: Promise<Params
                 <h2 className="text-lg font-semibold mb-4 font-heading tracking-tight">Ideal Use Cases</h2>
                 <ul className="grid sm:grid-cols-2 gap-3">
                   {svc.useCases.map(u => (
-                    <li key={u} className="p-4 rounded-md border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950/40 text-sm font-medium leading-snug">
+                    <li key={u} className="p-4 rounded-md surface text-sm font-medium leading-snug relative overflow-hidden">
+                      <span className="absolute inset-0 opacity-0 hover:opacity-100 transition bg-gradient-to-br from-brand-600/5 to-transparent" />
                       {u}
                     </li>
                   ))}
@@ -89,7 +97,7 @@ export default async function ServiceDetail({ params }: { params: Promise<Params
                 <h2 className="text-lg font-semibold mb-4 font-heading tracking-tight">What Sets It Apart</h2>
                 <div className="space-y-3">
                   {svc.differentiators.map(d => (
-                    <div key={d} className="p-4 rounded-md border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950/40 text-sm leading-relaxed">
+                    <div key={d} className="p-4 rounded-md surface text-sm leading-relaxed">
                       {d}
                     </div>
                   ))}
@@ -102,7 +110,7 @@ export default async function ServiceDetail({ params }: { params: Promise<Params
                 <h2 className="text-lg font-semibold mb-4 font-heading tracking-tight">Focus KPIs</h2>
                 <div className="flex flex-wrap gap-2">
                   {svc.kpis.map(k => (
-                    <span key={k} className="text-xs px-3 py-1 rounded-full bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 font-medium tracking-wide text-neutral-700 dark:text-neutral-300">
+                    <span key={k} className="text-xs px-3 py-1 rounded-full bg-brand-600/10 text-brand-700 dark:text-brand-400 ring-1 ring-brand-600/20 font-medium tracking-wide">
                       {k}
                     </span>
                   ))}
@@ -121,7 +129,8 @@ export default async function ServiceDetail({ params }: { params: Promise<Params
         </div>
 
         <aside className="space-y-8 lg:sticky lg:top-24 h-max">
-          <div className="surface p-6">
+          <div className="surface p-6 relative overflow-hidden">
+            <span className="absolute -top-8 -right-8 w-24 h-24 bg-brand-600/5 rounded-full blur-xl" />
             <h3 className="font-heading font-semibold tracking-tight text-base mb-2">Engage This Service</h3>
             <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed mb-5">Outline scope, timelines, and integration considerations with our team. We calibrate expectations early.</p>
             <div className="flex flex-col gap-3">
@@ -134,7 +143,8 @@ export default async function ServiceDetail({ params }: { params: Promise<Params
             </div>
           </div>
           {svc.idealCustomers && (
-            <div className="surface p-6">
+            <div className="surface p-6 relative overflow-hidden">
+              <span className="absolute inset-0 opacity-0 hover:opacity-100 transition bg-gradient-to-br from-brand-600/5 to-transparent" />
               <h4 className="text-xs font-semibold uppercase tracking-wide text-neutral-500 dark:text-neutral-400 mb-4">Ideal Profiles</h4>
               <ul className="space-y-2 text-sm">
                 {svc.idealCustomers.map(c => (
