@@ -91,7 +91,7 @@ export function Navbar() {
 						className="md:hidden border-t border-neutral-200 dark:border-neutral-800 bg-white/95 dark:bg-neutral-950/95 backdrop-blur"
 					>
 						<div className="container py-4 flex flex-col gap-2 text-sm font-medium">
-							{links.map(l => {
+							{links.filter(l=>l.href !== '/quote').map(l => {
 								const active = pathname === l.href;
 								return (
 									<Link
