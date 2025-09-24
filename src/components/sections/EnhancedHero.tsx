@@ -1,5 +1,6 @@
 "use client";
 import Link from 'next/link';
+import { LogisticsNetwork } from './LogisticsNetwork';
 
 const stats: { label: string; value: string }[] = [
   { label: 'Shipments / week', value: '1200+' },
@@ -29,15 +30,15 @@ export function EnhancedHero() {
             <Link href="/services" className="btn-outline">Explore Services</Link>
           </div>
         </div>
-        <div className="grid grid-cols-2 gap-4 content-start">
-          {stats.map(s => (
-            <div key={s.label} className="surface p-5 flex flex-col gap-2">
-              <span className="text-[11px] uppercase tracking-wide text-neutral-500 dark:text-neutral-400">{s.label}</span>
-              <span className="text-3xl font-heading font-semibold">{s.value}</span>
-            </div>
-          ))}
-          <div className="col-span-2 surface-elevated p-6 h-40 flex items-center justify-center text-sm text-neutral-500 dark:text-neutral-400">
-            Future live map / network visualization
+        <div className="flex flex-col gap-6">
+          <LogisticsNetwork />
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {stats.map(s => (
+              <div key={s.label} className="surface p-4 flex flex-col gap-1.5">
+                <span className="text-[10px] uppercase tracking-wide text-neutral-500 dark:text-neutral-400">{s.label}</span>
+                <span className="text-2xl md:text-3xl font-heading font-semibold">{s.value}</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>
