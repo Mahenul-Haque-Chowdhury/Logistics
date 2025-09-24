@@ -3,7 +3,6 @@ import { useMemo, useState } from 'react';
 import Link from 'next/link';
 import { Service } from '@/types';
 import { ServiceCard } from '@/components/sections/ServiceCard';
-import { Service as ServiceType } from '@/types';
 import { Sparkles, Star } from 'lucide-react';
 
 type Category = 'all' | 'relocation' | 'dispatch';
