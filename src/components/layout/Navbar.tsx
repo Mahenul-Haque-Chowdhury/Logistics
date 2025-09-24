@@ -105,7 +105,6 @@ export function Navbar() {
 									</Link>
 								);
 							})}
-							<Link href="/quote" onClick={close} className="mt-2 btn-primary inline-flex justify-center h-11 text-sm font-medium whitespace-nowrap leading-none">Request Quote</Link>
 						</div>
 					</motion.div>
 				)}
