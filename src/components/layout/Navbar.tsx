@@ -68,7 +68,7 @@ export function Navbar() {
 				{/* Right: Utilities */}
 				<div className="flex items-center gap-3 flex-shrink-0">
 					<ThemeToggle />
-					<Link href="/quote" className="hidden lg:inline-flex btn-primary h-10 px-5 text-sm font-medium whitespace-nowrap leading-none" onClick={close}>Request Quote</Link>
+					<Link href="/quote" className="hidden md:inline-flex btn-primary h-10 px-5 text-sm font-medium whitespace-nowrap leading-none" onClick={close}>Request Quote</Link>
 					<button
 						className="md:hidden inline-flex items-center justify-center p-2 rounded-md border border-neutral-300 dark:border-neutral-700 focus-ring"
 						onClick={()=>setOpen(o=>!o)}
@@ -91,7 +91,7 @@ export function Navbar() {
 						className="md:hidden border-t border-neutral-200 dark:border-neutral-800 bg-white/95 dark:bg-neutral-950/95 backdrop-blur"
 					>
 						<div className="container py-4 flex flex-col gap-2 text-sm font-medium">
-							{links.filter(l=>l.href !== '/quote').map(l => {
+							{links.map(l => {
 								const active = pathname === l.href;
 								return (
 									<Link
